@@ -34,7 +34,7 @@ class Aklk3ndna extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CurrentLocaleCubit, CurrentLocaleState>(
       builder: (context, state) {
-        return MaterialApp(
+        var materialApp = MaterialApp(
           debugShowCheckedModeBanner: false,
           locale: Locale(
             (state is ArabicState) ? 'ar' : 'en',
@@ -49,6 +49,7 @@ class Aklk3ndna extends StatelessWidget {
           routes: routes,
           initialRoute: SplashView.id,
         );
+        return materialApp;
       },
     );
   }

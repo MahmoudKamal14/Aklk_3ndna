@@ -2,8 +2,17 @@
     "title":"Aklk 3ndna",
     "skip":"SKIP",
     "next":"NEXT",
-    "GetStrated":"GET STARTED",
+    "getStarted":"GET STARTED",
     "welcome":"Welcome",
     "welcomeBody":"It’s a pleasure to meet you. We are excited that you’re here so let’s get started!",
-    "signUp":"Sign Up"
+    "signUp":"Sign Up",
+    "signIn":"Sign In",
+    "AlreadyHaveAnAccount":"Already have an account ? ",
+    "DoYouHaveAnAccount":"Do you have an account ? ",
+    "name":"Name",
+    "email":"Email",
+    "phoneNumber":"Phone Number",
+    "password":"Password",
+    "TermsAndConditions":"I agree to your terms and conditions",
+    "isEmpty":"is empty!"
 }

@@ -1,8 +1,9 @@
 import 'package:aklk_3ndna/features/auth/presentation/widget/custom_check_box.dart';
+import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class TermsAndConidtionWidget extends StatelessWidget {
-  const TermsAndConidtionWidget({super.key});
+class TermsAndConditionWidget extends StatelessWidget {
+  const TermsAndConditionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,15 +13,8 @@ class TermsAndConidtionWidget extends StatelessWidget {
         Text.rich(
           TextSpan(children: [
             TextSpan(
-              text: 'I have agree to our ',
+              text: S.of(context).TermsAndConditions,
               style: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
-            TextSpan(
-              text: 'Terms and Condition',
-              style: TextStyle(
-                decoration: TextDecoration.underline,
                 color: Colors.grey,
               ),
             ),

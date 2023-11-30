@@ -2,8 +2,17 @@
     "title":"أكلك عندنا",
     "skip":"تخطي",
     "next":"التالي",
-    "GetStrated":"البدء",
+    "getStarted":"البدء",
     "welcome":"مرحباً",
     "welcomeBody":"من دواعي سروري مقابلتك. نحن متحمسون لوجودك هنا، فلنبدأ!",
-    "signUp":"Sign Up"
+    "signUp":"اشتراك",
+    "signIn":"تسجيل الدخول",
+    "AlreadyHaveAnAccount":"هل لديك حساب ؟ ",
+    "DoYouHaveAnAccount":"هل لديك حساب ؟ ",
+    "name":"الاسم",
+    "email":"بريد إلكتروني",
+    "phoneNumber":"رقم التليفون",
+    "password":"كلمة المرور",
+    "TermsAndConditions":"أوافق على الشروط والأحكام الخاصة بك",
+    "isEmpty":"فارغ!"
 }

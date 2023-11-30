@@ -2,7 +2,7 @@ import 'package:aklk_3ndna/core/database/cache/cache_helper.dart';
 import 'package:aklk_3ndna/core/services/service_locator.dart';
 import 'package:aklk_3ndna/core/utils/app_assets.dart';
 import 'package:aklk_3ndna/core/widgets/custom_button.dart';
-import 'package:aklk_3ndna/features/on_borading/presentation/views/on_borading_view.dart';
+import 'package:aklk_3ndna/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -72,13 +72,13 @@ class GetStartedView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: CustomButton(
-                text: S.of(context).GetStrated,
+                text: S.of(context).getStarted,
                 onPressed: () {
                   getIt<CacheHelper>()
                       .saveData(key: GetStartedView.id, value: true);
                   Navigator.pushReplacementNamed(
                     context,
-                    ONBoradingView.id,
+                    OnBoardingView.id,
                   );
                 },
               ),

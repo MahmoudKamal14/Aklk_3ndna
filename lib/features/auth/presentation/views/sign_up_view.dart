@@ -1,8 +1,9 @@
 import 'package:aklk_3ndna/core/services/service_locator.dart';
-import 'package:aklk_3ndna/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'package:aklk_3ndna/features/auth/cubit/auth_cubit.dart';
 import 'package:aklk_3ndna/features/auth/presentation/widget/custom_sign_up_form.dart';
 import 'package:aklk_3ndna/features/auth/presentation/widget/have_an_account_widget.dart';
 import 'package:aklk_3ndna/features/auth/presentation/widget/welcome_text_widget.dart';
+import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,9 +14,9 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: BlocProvider(
-        create: (context) => getIt<AuthCubit>(),
+    return BlocProvider(
+      create: (context) => getIt<AuthCubit>(),
+      child: SafeArea(
         child: Scaffold(
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -28,7 +29,12 @@ class SignUpView extends StatelessWidget {
                 CustomSignUpForm(),
                 SizedBox(height: height * 0.02),
                 HaveAnAccountWidget(
-                    text1: 'Already have an account ? ', text2: 'Sign In'),
+                  text1: S.of(context).AlreadyHaveAnAccount,
+                  text2: S.of(context).signIn,
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                ),
               ],
             ),
           ),

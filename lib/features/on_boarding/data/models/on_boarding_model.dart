@@ -1,31 +1,31 @@
 import 'package:aklk_3ndna/core/utils/app_assets.dart';
 
-class OnBoradingModel {
+class OnBoardingModel {
   final String title;
   final String subTitle;
   final String pathImage;
 
-  OnBoradingModel({
+  OnBoardingModel({
     required this.title,
     required this.subTitle,
     required this.pathImage,
   });
 }
 
-final List<OnBoradingModel> boardingListEnglish = [
-  OnBoradingModel(
+final List<OnBoardingModel> boardingListEnglish = [
+  OnBoardingModel(
     title: 'All your favorites',
     subTitle:
         'Order from the best local restaurants with easy, on-demand delivery.',
     pathImage: Assets.imagesOnBoradingAllyourfavorites,
   ),
-  OnBoradingModel(
+  OnBoardingModel(
     title: 'Free delivery offers',
     subTitle:
         'Free delivery for new customers via Apple Pay and others payment methods.',
     pathImage: Assets.imagesOnBoradingDeliveryOffers,
   ),
-  OnBoradingModel(
+  OnBoardingModel(
     title: 'Choose your food',
     subTitle:
         'Easily find your type of food craving and you’ll get delivery in wide range.',
@@ -33,18 +33,18 @@ final List<OnBoradingModel> boardingListEnglish = [
   ),
 ];
 
-List<OnBoradingModel> boardingListArabic = [
-  OnBoradingModel(
+List<OnBoardingModel> boardingListArabic = [
+  OnBoardingModel(
     pathImage: Assets.imagesOnBoradingAllyourfavorites,
     title: 'جميع المفضلة لديك',
     subTitle: 'اطلب من أفضل المطاعم المحلية مع خدمة التوصيل السهلة عند الطلب.',
   ),
-  OnBoradingModel(
+  OnBoardingModel(
     pathImage: Assets.imagesOnBoradingDeliveryOffers,
     title: 'عروض التوصيل المجاني',
     subTitle: 'التوصيل مجاني للعملاء الجدد عبر Apple Pay وطرق الدفع الأخرى.',
   ),
-  OnBoradingModel(
+  OnBoardingModel(
     pathImage: Assets.imagesOnBoradingChooseyourfood,
     title: 'اختر طعامك',
     subTitle:

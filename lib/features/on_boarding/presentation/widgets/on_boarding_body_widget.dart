@@ -1,17 +1,17 @@
 import 'package:aklk_3ndna/core/functions/is_arabic.dart';
-import 'package:aklk_3ndna/features/on_borading/data/models/on_borading_model.dart';
-import 'package:aklk_3ndna/features/on_borading/presentation/widgets/custom_smooth_page_indicator.dart';
+import 'package:aklk_3ndna/features/on_boarding/data/models/on_boarding_model.dart';
+import 'package:aklk_3ndna/features/on_boarding/presentation/widgets/custom_smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
-class ONBoradingBody extends StatelessWidget {
-  ONBoradingBody({
+class OnBoardingBody extends StatelessWidget {
+  OnBoardingBody({
     super.key,
     required this.controller,
     required this.onPageChanged,
   });
   final Function(int) onPageChanged;
   final PageController controller;
-  final List<OnBoradingModel> onBoradingData =
+  final List<OnBoardingModel> onBoardingData =
       isArabic() ? boardingListArabic : boardingListEnglish;
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,11 @@ class ONBoradingBody extends StatelessWidget {
           return Column(
             children: [
               const SizedBox(height: 60),
-              Image.asset(onBoradingData[index].pathImage,
+              Image.asset(onBoardingData[index].pathImage,
                   width: 300, height: 300),
               const SizedBox(height: 24),
               Text(
-                onBoradingData[index].title,
+                onBoardingData[index].title,
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class ONBoradingBody extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                onBoradingData[index].subTitle,
+                onBoardingData[index].subTitle,
                 style: const TextStyle(
                   fontSize: 16,
                 ),

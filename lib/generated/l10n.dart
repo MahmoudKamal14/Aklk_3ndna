@@ -81,10 +81,10 @@ class S {
   }
 
   /// `GET STARTED`
-  String get GetStrated {
+  String get getStarted {
     return Intl.message(
       'GET STARTED',
-      name: 'GetStrated',
+      name: 'getStarted',
       desc: '',
       args: [],
     );
@@ -115,6 +115,96 @@ class S {
     return Intl.message(
       'Sign Up',
       name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account ? `
+  String get AlreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account ? ',
+      name: 'AlreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you have an account ? `
+  String get DoYouHaveAnAccount {
+    return Intl.message(
+      'Do you have an account ? ',
+      name: 'DoYouHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I agree to your terms and conditions`
+  String get TermsAndConditions {
+    return Intl.message(
+      'I agree to your terms and conditions',
+      name: 'TermsAndConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `is empty!`
+  String get isEmpty {
+    return Intl.message(
+      'is empty!',
+      name: 'isEmpty',
       desc: '',
       args: [],
     );

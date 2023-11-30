@@ -2,11 +2,7 @@ import 'package:aklk_3ndna/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-  });
+   CustomButton({super.key, required this.text, required this.onPressed});
   final String text;
   final VoidCallback onPressed;
   @override

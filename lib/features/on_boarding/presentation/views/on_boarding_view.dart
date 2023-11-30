@@ -1,20 +1,20 @@
 import 'package:aklk_3ndna/core/widgets/custom_button.dart';
-import 'package:aklk_3ndna/features/auth/presentation/views/sign_up_view.dart';
-import 'package:aklk_3ndna/features/on_borading/data/models/on_borading_model.dart';
-import 'package:aklk_3ndna/features/on_borading/presentation/widgets/custom_nav_bar.dart';
-import 'package:aklk_3ndna/features/on_borading/presentation/widgets/on_borading_body_widget.dart';
+import 'package:aklk_3ndna/features/auth/presentation/views/sign_in_view.dart';
+import 'package:aklk_3ndna/features/on_boarding/data/models/on_boarding_model.dart';
+import 'package:aklk_3ndna/features/on_boarding/presentation/widgets/custom_nav_bar.dart';
+import 'package:aklk_3ndna/features/on_boarding/presentation/widgets/on_boarding_body_widget.dart';
 import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class ONBoradingView extends StatefulWidget {
-  const ONBoradingView({super.key});
-  static const String id = "onBorading";
+class OnBoardingView extends StatefulWidget {
+  const OnBoardingView({super.key});
+  static const String id = "onBoarding";
 
   @override
-  State<ONBoradingView> createState() => _ONBoradingViewState();
+  State<OnBoardingView> createState() => _OnBoardingViewState();
 }
 
-class _ONBoradingViewState extends State<ONBoradingView> {
+class _OnBoardingViewState extends State<OnBoardingView> {
   final PageController _controller = PageController(initialPage: 0);
   int currentIndex = 0;
   @override
@@ -29,17 +29,10 @@ class _ONBoradingViewState extends State<ONBoradingView> {
               const SizedBox(height: 20),
               CustomNavBar(
                 onTap: () {
-                  Navigator.pushNamed(context, SignUpView.id);
+                  Navigator.pushNamed(context, SignInView.id);
                 },
               ),
-              // Image.asset(
-              //   isArabic()
-              //       ? Assets.imagesAklk3ndnaAr1
-              //       : Assets.imagesAklk3ndnaEn1,
-              //   height: 70,
-              //   color: const Color(0xffEEA734),
-              // ),
-              ONBoradingBody(
+              OnBoardingBody(
                   onPageChanged: (index) {
                     setState(() {
                       currentIndex = index;
@@ -51,7 +44,7 @@ class _ONBoradingViewState extends State<ONBoradingView> {
                   ? CustomButton(
                       text: S.of(context).next,
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, SignUpView.id);
+                        Navigator.pushReplacementNamed(context, SignInView.id);
                       },
                     )
                   : CustomButton(
