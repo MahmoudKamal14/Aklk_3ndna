@@ -85,15 +85,15 @@ class AuthCubit extends Cubit<AuthStates> {
     });
   }
 
-  IconData suffix = Icons.visibility_outlined;
-  bool showPassword = true;
-  void changePasswordVisibility() {
-    showPassword = !showPassword;
-    suffix = showPassword
-        ? Icons.visibility_outlined
-        : Icons.visibility_off_outlined;
-    emit(ChangePasswordVisibility());
-  }
+  // IconData suffix = Icons.visibility_outlined;
+  // bool showPassword = true;
+  // void changePasswordVisibility() {
+  //   showPassword = !showPassword;
+  //   suffix = showPassword
+  //       ? Icons.visibility_outlined
+  //       : Icons.visibility_off_outlined;
+  //   emit(ChangePasswordVisibility());
+  // }
 
   // obscure Password Text
   bool? obscurePasswordTextValue = true;
