@@ -3,9 +3,9 @@
     "skip":"تخطي",
     "next":"التالي",
     "getStarted":"البدء",
-    "welcome":"مرحباً",
+    "welcome":" مرحباً",
     "welcomeBody":"من دواعي سروري مقابلتك. نحن متحمسون لوجودك هنا، فلنبدأ!",
-    "signUp":"اشتراك",
+    "signUp":"إنشاء حساب",
     "signIn":"تسجيل الدخول",
     "AlreadyHaveAnAccount":"هل لديك حساب ؟ ",
     "DoYouHaveAnAccount":"هل لديك حساب ؟ ",
@@ -14,5 +14,11 @@
     "phoneNumber":"رقم التليفون",
     "password":"كلمة المرور",
     "TermsAndConditions":"أوافق على الشروط والأحكام الخاصة بك",
-    "isEmpty":"فارغ!"
+    "isEmpty":"فارغ!",
+    "forgotPassword":"هل نسيت كلمة السر ؟",
+    "supTitleForgetPassword":"أدخل بريدك الإلكتروني المسجل أدناه لتلقي تعليمات إعادة تعيين كلمة المرور",
+    "oops":"أُووبس!",
+    "noInternet":"لا يوجد إنترنت",
+    "PleaseCheckYourNetWorkConnection":"الرجاء التحقق من اتصال الشبكة الخاصة بك",
+    "TyrAgain":"حاول ثانياً"
 }

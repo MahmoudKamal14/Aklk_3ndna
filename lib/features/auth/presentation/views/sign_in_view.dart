@@ -1,5 +1,4 @@
-import 'package:aklk_3ndna/core/services/service_locator.dart';
-import 'package:aklk_3ndna/features/auth/cubit/auth_cubit.dart';
+import 'package:aklk_3ndna/features/auth/cubit_auth/auth_cubit.dart';
 import 'package:aklk_3ndna/features/auth/presentation/views/sign_up_view.dart';
 import 'package:aklk_3ndna/features/auth/presentation/widget/custom_sign_in_form.dart';
 import 'package:aklk_3ndna/features/auth/presentation/widget/have_an_account_widget.dart';
@@ -16,7 +15,7 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
+      create: (context) => AuthCubit(),
       child: SafeArea(
         child: Scaffold(
           body: Padding(
@@ -25,7 +24,7 @@ class SignInView extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               children: [
                 SizedBox(height: height * 0.16),
-                WelcomeTextWidget(),
+                WelcomeTextWidget(text: S.of(context).welcome),
                 SizedBox(height: height * 0.08),
                 CustomSignInForm(),
                 SizedBox(height: height * 0.02),
@@ -33,9 +32,10 @@ class SignInView extends StatelessWidget {
                   text1: S.of(context).DoYouHaveAnAccount,
                   text2: S.of(context).signUp,
                   onTap: () {
-                    Navigator.pushNamed(context, SignUpView.id);
+                    Navigator.pushReplacementNamed(context, SignUpView.id);
                   },
                 ),
+                SizedBox(height: height * 0.02),
               ],
             ),
           ),
@@ -44,4 +44,3 @@ class SignInView extends StatelessWidget {
     );
   }
 }
-

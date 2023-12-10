@@ -3,7 +3,7 @@
     "skip":"SKIP",
     "next":"NEXT",
     "getStarted":"GET STARTED",
-    "welcome":"Welcome",
+    "welcome":"Welcome ",
     "welcomeBody":"It’s a pleasure to meet you. We are excited that you’re here so let’s get started!",
     "signUp":"Sign Up",
     "signIn":"Sign In",
@@ -14,5 +14,11 @@
     "phoneNumber":"Phone Number",
     "password":"Password",
     "TermsAndConditions":"I agree to your terms and conditions",
-    "isEmpty":"is empty!"
+    "isEmpty":"is empty!",
+    "forgotPassword":"Forgot Password ?",
+    "supTitleForgetPassword":"Enter your registered email below to receive password reset instruction",
+    "oops":"OOPS!",
+    "noInternet":"NO INTERNET",
+    "PleaseCheckYourNetWorkConnection":"Please check your network connection.",
+    "TyrAgain":"TRY AGAIN"
 }

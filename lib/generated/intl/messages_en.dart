@@ -26,20 +26,30 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account ? "),
         "DoYouHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
+        "PleaseCheckYourNetWorkConnection":
+            MessageLookupByLibrary.simpleMessage(
+                "Please check your network connection."),
         "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
             "I agree to your terms and conditions"),
+        "TyrAgain": MessageLookupByLibrary.simpleMessage("TRY AGAIN"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
         "getStarted": MessageLookupByLibrary.simpleMessage("GET STARTED"),
         "isEmpty": MessageLookupByLibrary.simpleMessage("is empty!"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "next": MessageLookupByLibrary.simpleMessage("NEXT"),
+        "noInternet": MessageLookupByLibrary.simpleMessage("NO INTERNET"),
+        "oops": MessageLookupByLibrary.simpleMessage("OOPS!"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "skip": MessageLookupByLibrary.simpleMessage("SKIP"),
+        "supTitleForgetPassword": MessageLookupByLibrary.simpleMessage(
+            "Enter your registered email below to receive password reset instruction"),
         "title": MessageLookupByLibrary.simpleMessage("Aklk 3ndna"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome "),
         "welcomeBody": MessageLookupByLibrary.simpleMessage(
             "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!")
       };

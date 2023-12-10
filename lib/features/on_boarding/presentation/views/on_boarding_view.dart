@@ -29,7 +29,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               const SizedBox(height: 20),
               CustomNavBar(
                 onTap: () {
-                  Navigator.pushNamed(context, SignInView.id);
+                  Navigator.pushReplacementNamed(context, SignInView.id);
                 },
               ),
               OnBoardingBody(

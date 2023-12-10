@@ -7,3 +7,5 @@ TextEditingController nameController = TextEditingController();
 TextEditingController phoneController = TextEditingController();
 
 TextEditingController passwordController = TextEditingController();
+
+TextEditingController forgotPasswordController = TextEditingController();

@@ -1,14 +1,13 @@
-import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeTextWidget extends StatelessWidget {
-  const WelcomeTextWidget({super.key});
-
+  const WelcomeTextWidget({super.key, required this.text});
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Align(
       child: Text(
-        '${S.of(context).welcome}!',
+        text,
         style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.w600,

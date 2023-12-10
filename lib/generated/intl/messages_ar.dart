@@ -26,20 +26,30 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هل لديك حساب ؟ "),
         "DoYouHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب ؟ "),
+        "PleaseCheckYourNetWorkConnection":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء التحقق من اتصال الشبكة الخاصة بك"),
         "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
             "أوافق على الشروط والأحكام الخاصة بك"),
+        "TyrAgain": MessageLookupByLibrary.simpleMessage("حاول ثانياً"),
         "email": MessageLookupByLibrary.simpleMessage("بريد إلكتروني"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر ؟"),
         "getStarted": MessageLookupByLibrary.simpleMessage("البدء"),
         "isEmpty": MessageLookupByLibrary.simpleMessage("فارغ!"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "noInternet": MessageLookupByLibrary.simpleMessage("لا يوجد إنترنت"),
+        "oops": MessageLookupByLibrary.simpleMessage("أُووبس!"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "signUp": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "supTitleForgetPassword": MessageLookupByLibrary.simpleMessage(
+            "أدخل بريدك الإلكتروني المسجل أدناه لتلقي تعليمات إعادة تعيين كلمة المرور"),
         "title": MessageLookupByLibrary.simpleMessage("أكلك عندنا"),
-        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
+        "welcome": MessageLookupByLibrary.simpleMessage(" مرحباً"),
         "welcomeBody": MessageLookupByLibrary.simpleMessage(
             "من دواعي سروري مقابلتك. نحن متحمسون لوجودك هنا، فلنبدأ!")
       };

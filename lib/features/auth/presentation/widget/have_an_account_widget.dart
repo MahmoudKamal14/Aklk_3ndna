@@ -10,15 +10,20 @@ class HaveAnAccountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-      Text(text1),
-      InkWell(
-        onTap: onTap,
-        child: Text(
-          text2,
-          style: TextStyle(color: kPrimaryColor),
+      children: [
+        Text(text1),
+        InkWell(
+          onTap: onTap,
+          child: Text(
+            text2,
+            style: TextStyle(
+              fontSize: 17,
+              color: kPrimaryColor,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 }

@@ -90,10 +90,10 @@ class S {
     );
   }
 
-  /// `Welcome`
+  /// `Welcome `
   String get welcome {
     return Intl.message(
-      'Welcome',
+      'Welcome ',
       name: 'welcome',
       desc: '',
       args: [],
@@ -205,6 +205,66 @@ class S {
     return Intl.message(
       'is empty!',
       name: 'isEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password ?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password ?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your registered email below to receive password reset instruction`
+  String get supTitleForgetPassword {
+    return Intl.message(
+      'Enter your registered email below to receive password reset instruction',
+      name: 'supTitleForgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OOPS!`
+  String get oops {
+    return Intl.message(
+      'OOPS!',
+      name: 'oops',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NO INTERNET`
+  String get noInternet {
+    return Intl.message(
+      'NO INTERNET',
+      name: 'noInternet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your network connection.`
+  String get PleaseCheckYourNetWorkConnection {
+    return Intl.message(
+      'Please check your network connection.',
+      name: 'PleaseCheckYourNetWorkConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TRY AGAIN`
+  String get TyrAgain {
+    return Intl.message(
+      'TRY AGAIN',
+      name: 'TyrAgain',
       desc: '',
       args: [],
     );
