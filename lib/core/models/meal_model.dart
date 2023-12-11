@@ -1,7 +1,7 @@
 class MealModel {
   late String? name;
   late String? uid;
-  late String? image;
+  late String? photo;
   late String? price;
   late String? rate;
   late String? description;
@@ -10,17 +10,17 @@ class MealModel {
     this.price,
     this.description,
     this.uid,
-    this.image,
+    this.photo,
     this.rate,
   });
 
   MealModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     price = json['price'];
-    price = json['rate'];
+    rate = json['rate'];
     description = json['description'];
     uid = json['uid'];
-    image = json['image'];
+    photo = json['photo'];
   }
 
   Map<String, dynamic> toMap() {
@@ -30,7 +30,7 @@ class MealModel {
       'description': description,
       'rate': rate,
       'uid': uid,
-      'image': image,
+      'photo': photo,
     };
   }
 }

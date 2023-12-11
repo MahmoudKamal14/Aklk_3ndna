@@ -269,6 +269,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Meal details`
+  String get MealDetails {
+    return Intl.message(
+      'Meal details',
+      name: 'MealDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Now`
+  String get orderNow {
+    return Intl.message(
+      'Order Now',
+      name: 'orderNow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -30,7 +30,6 @@ class AppCubit extends Cubit<AppStates> {
         .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
         .get()
         .then((value) {
-      //userModel = UserModel.fromJson(value.data()!);
       print(value.data());
       emit(GetUserDataSuccessState());
     }).catchError((onError) {
@@ -77,6 +76,7 @@ class AppCubit extends Cubit<AppStates> {
   void uploadProfileImage({
     required String name,
     required String phone,
+    required String email,
   }) {
     emit(UpdateProfileImageLoadingState());
     FirebaseStorage.instance
@@ -90,6 +90,7 @@ class AppCubit extends Cubit<AppStates> {
           name: name,
           phone: phone,
           image: value,
+          email: email,
         );
         emit(UpdateProfileImageLoadingState());
       }).catchError((error) {
@@ -103,6 +104,7 @@ class AppCubit extends Cubit<AppStates> {
   void updateUser({
     required String name,
     required String phone,
+    required String email,
     String? image,
   }) {
     emit(UpdateUserDataLoadingState());

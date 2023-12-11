@@ -20,5 +20,7 @@
     "oops":"أُووبس!",
     "noInternet":"لا يوجد إنترنت",
     "PleaseCheckYourNetWorkConnection":"الرجاء التحقق من اتصال الشبكة الخاصة بك",
-    "TyrAgain":"حاول ثانياً"
+    "TyrAgain":"حاول ثانياً",
+    "MealDetails":"تفاصيل الوجبة",
+    "orderNow":"أطلب الأن"
 }

@@ -20,5 +20,7 @@
     "oops":"OOPS!",
     "noInternet":"NO INTERNET",
     "PleaseCheckYourNetWorkConnection":"Please check your network connection.",
-    "TyrAgain":"TRY AGAIN"
+    "TyrAgain":"TRY AGAIN",
+    "MealDetails":"Meal details",
+    "orderNow":"Order Now"
 }

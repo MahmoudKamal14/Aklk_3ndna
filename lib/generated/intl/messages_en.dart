@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account ? "),
         "DoYouHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
+        "MealDetails": MessageLookupByLibrary.simpleMessage("Meal details"),
         "PleaseCheckYourNetWorkConnection":
             MessageLookupByLibrary.simpleMessage(
                 "Please check your network connection."),
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "noInternet": MessageLookupByLibrary.simpleMessage("NO INTERNET"),
         "oops": MessageLookupByLibrary.simpleMessage("OOPS!"),
+        "orderNow": MessageLookupByLibrary.simpleMessage("Order Now"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),

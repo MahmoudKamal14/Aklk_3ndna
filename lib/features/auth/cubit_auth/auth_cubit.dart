@@ -54,7 +54,8 @@ class AuthCubit extends Cubit<AuthState> {
         name: name,
         email: email,
         phone: phone,
-        image: 'assets/images/get_started/user.jpg');
+        image:
+            'https://firebasestorage.googleapis.com/v0/b/aklk-3ndna.appspot.com/o/user.jpg?alt=media&token=8fc5f613-5f1a-457b-b618-f7aa504da9d4');
     FirebaseFirestore.instance
         .collection('users')
         .doc(email)
