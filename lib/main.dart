@@ -42,6 +42,7 @@ class CustomMultiBlocProvider extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AppCubit()
+            ..mealModel
             ..getUserData()
             ..mealModel
             ..allMeals

@@ -1,8 +1,8 @@
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_states.dart';
-import 'package:aklk_3ndna/core/utils/app_assets.dart';
-import 'package:aklk_3ndna/core/utils/app_colors.dart';
 import 'package:aklk_3ndna/core/utils/app_controller.dart';
+import 'package:aklk_3ndna/features/profile/presentation/widgets/image_profile.dart';
+import 'package:aklk_3ndna/features/profile/presentation/widgets/text_field_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,19 +14,21 @@ class EditProfileUserScreen extends StatelessWidget {
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
       builder: (context, state) {
+        var user = AppCubit.get(context).userModel;
         var editProfileImage = AppCubit.get(context).profileImageFile;
 
+        nameController.text = user.name;
+        phoneController.text = user.phone;
         return Scaffold(
+          backgroundColor: Colors.white,
           appBar: AppBar(
             elevation: 0.0,
-            backgroundColor: kPrimaryColor,
-            titleSpacing: 0.0,
-            centerTitle: true,
+            backgroundColor: Colors.transparent,
             title: const Text(
               'Edit Profile',
               style: TextStyle(
                 fontSize: 25,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             actions: [
@@ -48,86 +50,44 @@ class EditProfileUserScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: Column(
-            children: [
-              if (state is UpdateUserDataLoadingState)
-                const LinearProgressIndicator(),
-              if (state is! UpdateUserDataLoadingState)
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                if (state is UpdateUserDataLoadingState)
+                  const LinearProgressIndicator(),
+                if (state is! UpdateUserDataLoadingState)
+                  const SizedBox(
+                    height: 15,
+                  ),
+                ImageProfile(editProfileImage: editProfileImage, user: user),
                 const SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
-              SizedBox(
-                height: 50,
-              ),
-              Center(
-                child: Stack(
-                  alignment: Alignment.bottomLeft,
-                  clipBehavior: Clip.none,
-                  children: [
-                    CircleAvatar(
-                      radius: 64,
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        backgroundImage: editProfileImage == null
-                            ? AssetImage(Assets.imagesLogonameAklk3ndnaEn1)
-                            : FileImage(editProfileImage) as ImageProvider,
-                        radius: 60,
-                      ),
-                    ),
-                    Positioned(
-                      left: 14,
-                      child: IconButton(
-                        onPressed: () {
-                          AppCubit.get(context).getProfileImage();
-                          print('object');
-                        },
-                        icon: Icon(
-                          Icons.camera_alt_rounded,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              if (AppCubit.get(context).profileImageFile != null)
+                if (state is ProfileImagePickerSuccessState)
+                  UpdateProfileImage(editProfileImage: editProfileImage),
+                if (state is ProfileImagePickerSuccessState) SizedBox(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: OutlinedButton(
-                            onPressed: () {
-                              AppCubit.get(context).uploadProfileImage(
-                                name: nameController.text,
-                                phone: phoneController.text,
-                                email: emailController.text,
-                              );
-                            },
-                            child: const Text(
-                              'Update Profile Image',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            )),
-                      ),
-                    ],
+                  padding: const EdgeInsets.all(16.0),
+                  child: textFieldProfile(
+                    controller: nameController,
+                    type: TextInputType.name,
+                    prefix: Icons.person_2,
+                    label: 'Name',
+                    hintText: '${user.name}',
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextFormField(
-                  controller: nameController,
-                  keyboardType: TextInputType.name,
-                  decoration: InputDecoration(
-                    prefix: Icon(Icons.person_2),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: textFieldProfile(
+                    controller: phoneController,
+                    type: TextInputType.phone,
+                    prefix: Icons.phone,
+                    label: 'Phone',
+                    hintText: '${user.phone}',
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

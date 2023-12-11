@@ -20,7 +20,7 @@ class AppCubit extends Cubit<AppStates> {
 
   static AppCubit get(context) => BlocProvider.of(context);
 
-  UserModel? userModel;
+  late UserModel userModel;
   MealModel? mealModel;
 
   void getUserData() {
@@ -31,6 +31,9 @@ class AppCubit extends Cubit<AppStates> {
         .get()
         .then((value) {
       print(value.data());
+      userModel = UserModel.fromJson(value.data()!);
+
+      print('Name => ${userModel.name}');
       emit(GetUserDataSuccessState());
     }).catchError((onError) {
       emit(GetUserDataErrorState(onError.toString()));
@@ -111,12 +114,12 @@ class AppCubit extends Cubit<AppStates> {
     UserModel modelMap = UserModel(
       name: name,
       phone: phone,
-      image: image ?? userModel!.image,
-      email: userModel!.email,
+      image: image ?? userModel.image,
+      email: userModel.email,
     );
     FirebaseFirestore.instance
         .collection('users')
-        .doc(userModel!.email)
+        .doc(userModel.email)
         .update(modelMap.toMap())
         .then((value) {
       getUserData();
