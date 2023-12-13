@@ -1,3 +1,4 @@
+import 'package:aklk_3ndna/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 Widget textFieldProfile({
@@ -16,8 +17,11 @@ Widget textFieldProfile({
       ),
       cursorColor: Colors.grey,
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border: _getBorderStyle(),
+        focusedBorder: _getBorderStyle(),
+        enabledBorder: _getBorderStyle(color: Colors.grey),
         hintText: hintText,
+        prefixIconColor: Colors.amber,
         hintStyle: const TextStyle(
           color: Colors.grey,
           fontSize: 22,
@@ -29,3 +33,10 @@ Widget textFieldProfile({
         prefixIcon: Icon(prefix),
       ),
     );
+OutlineInputBorder _getBorderStyle({Color? color}) {
+  return OutlineInputBorder(
+    borderSide: BorderSide(
+      color: color ?? kPrimaryColor,
+    ),
+  );
+}

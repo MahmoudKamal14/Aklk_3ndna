@@ -6,7 +6,7 @@ class CurrentLocaleCubit extends Cubit<CurrentLocaleState> {
   static CurrentLocaleCubit get(context) => BlocProvider.of(context);
 
   void updateLanguage({required bool value}) {
-    if (value == false) {
+    if (value == true) {
       emit(ArabicState());
     } else {
       emit(EnglishState());

@@ -1,5 +1,3 @@
-// ignore_for_file: equal_keys_in_map
-
 import 'package:aklk_3ndna/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:aklk_3ndna/features/auth/presentation/views/sign_in_view.dart';
 import 'package:aklk_3ndna/features/auth/presentation/views/sign_up_view.dart';

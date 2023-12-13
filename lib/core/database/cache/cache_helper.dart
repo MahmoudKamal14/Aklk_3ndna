@@ -15,8 +15,8 @@ class CacheHelper {
   }) {
     return sharedPreferences.getString(key);
   }
-
-// ! this method to put data in local database using key
+  //  sharedPreferences.containsKey(key)
+//! this method to put data in local database using key
 
   Future<bool> saveData({required String key, required dynamic value}) async {
     if (value is bool) {

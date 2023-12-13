@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_states.dart';
@@ -24,6 +25,7 @@ class AppCubit extends Cubit<AppStates> {
   MealModel? mealModel;
 
   void getUserData() {
+    log('message');
     emit(GetUserDataLoadingState());
     FirebaseFirestore.instance
         .collection('users')
@@ -33,7 +35,7 @@ class AppCubit extends Cubit<AppStates> {
       print(value.data());
       userModel = UserModel.fromJson(value.data()!);
 
-      print('Name => ${userModel.name}');
+      log('Name => ${userModel.name}');
       emit(GetUserDataSuccessState());
     }).catchError((onError) {
       emit(GetUserDataErrorState(onError.toString()));
@@ -49,12 +51,93 @@ class AppCubit extends Cubit<AppStates> {
       value.docs.forEach((element) {
         allMeals.add(MealModel.fromJson(element.data()));
         print(allMeals);
+        log('الوجبات جاهزة للعرض');
         emit(GetAllMealsSuccessState());
       });
 
       emit(GetAllMealsSuccessState());
     }).catchError((error) {
       emit(GetAllMealsErrorState(error.toString()));
+      print(error);
+    });
+  }
+
+  // Set All Meals Favorite
+
+  void setAllMealsFavorite({
+    required String name,
+    required String price,
+    required String description,
+    required String photo,
+    required String rate,
+  }) {
+    MealModel meal = MealModel(
+        name: name,
+        price: price,
+        description: description,
+        photo: photo,
+        rate: rate);
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+        .collection('favorites')
+        .doc(name)
+        .set(meal.toMap())
+        .then((value) {
+      mealModel = MealModel.fromJson(meal.toMap());
+      print('The Favorite meal => ${mealModel!.name}');
+    }).catchError((onError) {});
+  }
+
+  void deleteMealFromFavorite({
+    required String name,
+    required String price,
+    required String description,
+    required String photo,
+    required String rate,
+  }) {
+    MealModel meal = MealModel(
+        name: name,
+        price: price,
+        description: description,
+        photo: photo,
+        rate: rate);
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+        .collection('favorites')
+        .doc(name)
+        .delete()
+        .then((value) {
+      mealModel = MealModel.fromJson(meal.toMap());
+      print('The Favorite meal => ${mealModel}');
+    }).catchError((onError) {});
+  }
+
+  // Get All Meals Favorite
+
+  List<MealModel> allMealsFavorite = [];
+
+  void getAllMealsFavorite() {
+    allMeals.clear();
+    emit(GetAllMealsFavoriteLoadingState());
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+        .collection('favorites')
+        .get()
+        .then((value) {
+      value.docs.forEach((element) {
+        allMealsFavorite.add(MealModel.fromJson(element.data()));
+        print(allMealsFavorite);
+        emit(GetAllMealsFavoriteSuccessState());
+      });
+
+      emit(GetAllMealsFavoriteSuccessState());
+    }).catchError((error) {
+      emit(GetAllMealsFavoriteErrorState(error.toString()));
       print(error);
     });
   }

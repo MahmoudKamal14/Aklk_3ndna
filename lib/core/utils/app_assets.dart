@@ -1,6 +1,60 @@
 class Assets {
   Assets._();
 
+  /// Assets for imagesDataProjectMeal10Kkers
+  /// assets/images/data_project/meal-10-kkers.jpg
+  static const String imagesDataProjectMeal10Kkers =
+      "assets/images/data_project/meal-10-McRoyal.png";
+
+  /// Assets for imagesDataProjectMeal1Peproni
+  /// assets/images/data_project/meal-1-peproni.png
+  static const String imagesDataProjectMeal1Peproni =
+      "assets/images/data_project/meal-1-peproni.png";
+
+  /// Assets for imagesDataProjectMeal2CHICKENRANCH
+  /// assets/images/data_project/meal-2-CHICKEN-RANCH.png
+  static const String imagesDataProjectMeal2CHICKENRANCH =
+      "assets/images/data_project/meal-2-CHICKEN-RANCH.png";
+
+  /// Assets for imagesDataProjectMeal3MightyZingerjpg
+  /// assets/images/data_project/meal-3-MightyZingerjpg.jpg
+  static const String imagesDataProjectMeal3MightyZingerjpg =
+      "assets/images/data_project/meal-3-Grills-Kilo.jpg";
+
+  /// Assets for imagesDataProjectMeal4MC
+  /// assets/images/data_project/meal-4-MC.jpg
+  static const String imagesDataProjectMeal4MC =
+      "assets/images/data_project/meal-4-p.jpg";
+
+  /// Assets for imagesDataProjectMeal5Combo
+  /// assets/images/data_project/meal-5-Combo.png
+  static const String imagesDataProjectMeal5Combo =
+      "assets/images/data_project/meal-5-kkers.jpg";
+
+  /// Assets for imagesDataProjectMeal6Ss
+  /// assets/images/data_project/meal-6-ss.jpg
+  static const String imagesDataProjectMeal6Ss =
+      "assets/images/data_project/meal-6-bzokka.jpg";
+
+  /// Assets for imagesDataProjectMeal7Sss
+  /// assets/images/data_project/meal-7-sss.jpg
+  static const String imagesDataProjectMeal7Sss =
+      "assets/images/data_project/meal-7-ABd.png";
+
+  /// Assets for imagesDataProjectMeal8GrillsKilo
+  /// assets/images/data_project/meal-8-Grills-Kilo.jpg
+  static const String imagesDataProjectMeal8GrillsKilo =
+      "assets/images/data_project/meal-8-جاتوه ميلفيه شوكولاته.png";
+
+  /// Assets for imagesDataProjectMeal9P
+  /// assets/images/data_project/meal-9-p.jpg
+  static const String imagesDataProjectMeal9P =
+      "assets/images/data_project/meal-9-Bigmac.png";
+
+  /// Assets for imagesEdit
+  /// assets/images/Edit.png
+  static const String imagesEdit = "assets/images/Edit.png";
+
   /// Assets for imagesForgotPassword
   /// assets/images/forgot-password.avif
   static const String imagesForgotPassword =
@@ -40,6 +94,10 @@ class Assets {
   /// assets/images/logoname/aklk_3ndna_en2.png
   static const String imagesLogonameAklk3ndnaEn2 =
       "assets/images/logoname/aklk_3ndna_en2.png";
+
+  /// Assets for imagesMe
+  /// assets/images/me.jpg
+  static const String imagesMe = "assets/images/me.jpg";
 
   /// Assets for imagesNoInternet
   /// assets/images/no_internet.png

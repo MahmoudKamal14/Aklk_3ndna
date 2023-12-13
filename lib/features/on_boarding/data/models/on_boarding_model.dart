@@ -15,8 +15,7 @@ class OnBoardingModel {
 final List<OnBoardingModel> boardingListEnglish = [
   OnBoardingModel(
     title: 'All your favorites',
-    subTitle:
-        'Order from the best local restaurants with easy, on-demand delivery.',
+    subTitle: 'Order from the best meals with easy, on-demand delivery.',
     pathImage: Assets.imagesOnBoradingAllyourfavorites,
   ),
   OnBoardingModel(
@@ -37,7 +36,7 @@ List<OnBoardingModel> boardingListArabic = [
   OnBoardingModel(
     pathImage: Assets.imagesOnBoradingAllyourfavorites,
     title: 'جميع المفضلة لديك',
-    subTitle: 'اطلب من أفضل المطاعم المحلية مع خدمة التوصيل السهلة عند الطلب.',
+    subTitle: 'اطلب من أفضل الوجبات مع خدمة التوصيل السهلة عند الطلب.',
   ),
   OnBoardingModel(
     pathImage: Assets.imagesOnBoradingDeliveryOffers,

@@ -192,17 +192,7 @@ class arrowFavorite extends StatelessWidget {
             ),
           ),
           Spacer(),
-          Container(
-            color: const Color(0xffD85E2C),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite_sharp,
-                size: 30,
-                color: Color(0xffFFFEEE),
-              ),
-            ),
-          ),
+          customFavorite(),
         ],
       ),
     );
@@ -329,6 +319,27 @@ class Size_buttons extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class customFavorite extends StatelessWidget {
+  const customFavorite({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color(0xffD85E2C),
+      child: IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.favorite_sharp,
+          size: 30,
+          color: Color(0xffFFFEEE),
+        ),
+      ),
     );
   }
 }

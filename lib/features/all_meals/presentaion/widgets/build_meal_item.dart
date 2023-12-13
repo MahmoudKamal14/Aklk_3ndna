@@ -14,20 +14,25 @@ Widget buildMealItem(MealModel model, context) => InkWell(
         );
       },
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Expanded(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
+        child: Card(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Row(
             children: [
-              Container(
-                height: 100,
-                width: 100,
-                child: Image(
-                  image: NetworkImage(model.photo!),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.transparent,
+                  backgroundImage: NetworkImage(model.photo!),
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
+              const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

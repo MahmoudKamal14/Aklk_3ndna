@@ -11,14 +11,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   static AuthCubit get(context) => BlocProvider.of(context);
+  static const String primaryKey = 'primaryKey';
 
 //! SignUp With Email And Password
-  Future<void> signUpWithEmailAndPassword({
-    required String email,
-    required String password,
-    required String name,
-    required String phone,
-  }) async {
+  Future<void> signUpWithEmailAndPassword(
+      {required String email,
+      required String password,
+      required String name,
+      required String phone}) async {
     try {
       emit(SignupLoadingState());
       await FirebaseAuth.instance
@@ -42,8 +42,6 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  static const String primaryKey = 'userId';
-
 //! user Create
   Future<void> addUserProfile({
     required String email,
@@ -51,30 +49,22 @@ class AuthCubit extends Cubit<AuthState> {
     required String phone,
   }) async {
     UserModel model = UserModel(
-      name: name,
-      email: email,
-      phone: phone,
-      image:
-          'https://firebasestorage.googleapis.com/v0/b/aklk-3ndna.appspot.com/o/user.jpg?alt=media&token=8fc5f613-5f1a-457b-b618-f7aa504da9d4',
-    );
-    await FirebaseFirestore.instance
+        name: name,
+        email: email,
+        phone: phone,
+        image:
+            'https://firebasestorage.googleapis.com/v0/b/aklk-3ndna-e9035.appspot.com/o/user.jpg?alt=media&token=81eaf114-1074-46fc-a8f7-db64a67252ca'); //!
+    FirebaseFirestore.instance
         .collection('users')
         .doc(email)
         .set(model.toMap())
         .then((value) {
       getIt<CacheHelper>().put(key: primaryKey, value: email);
     });
-
-    // CollectionReference users = FirebaseFirestore.instance.collection("users");
-    // await users.add({
-    //   "email": email,
-    //   "name": name,
-    //   "phone": phone,
-    //   "image": 'assets/images/get_started/user.jpg'
-    // });
   }
 
 //! verify Email
+
   Future<void> verifyEmail() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }

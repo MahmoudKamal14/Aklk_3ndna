@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomForgotPasswrodForm extends StatefulWidget {
   const CustomForgotPasswrodForm({super.key});
-
+  static bool pushSignIn = true;
   @override
   State<CustomForgotPasswrodForm> createState() =>
       _CustomForgotPasswrodFormState();
@@ -26,7 +26,10 @@ class _CustomForgotPasswrodFormState extends State<CustomForgotPasswrodForm> {
       listener: (context, state) {
         if (state is ResetPasswordSuccessState) {
           showToast("Check Your Email To Reset Your Password");
-          Navigator.pushReplacementNamed(context, SignInView.id);
+          CustomForgotPasswrodForm.pushSignIn == true
+              ? Navigator.pushReplacementNamed(context, SignInView.id)
+              : Navigator.pop(context);
+          CustomForgotPasswrodForm.pushSignIn = true;
         } else if (state is ResetPasswordFailureState) {
           showToast(state.errMessage);
         }
@@ -53,7 +56,7 @@ class _CustomForgotPasswrodFormState extends State<CustomForgotPasswrodForm> {
                                 email: forgotPasswordController.text);
                           }
                         },
-                        text: 'Send Reset Password Link',
+                        text: S.of(context).SendResetPasswordLink,
                       ),
               ],
             ),

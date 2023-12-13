@@ -5,10 +5,8 @@ class CustomFavoriteWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Favorite View"),
-      ),
+    return Center(
+      child: Text("Favorite View"),
     );
   }
 }

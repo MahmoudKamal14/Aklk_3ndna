@@ -24,20 +24,38 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب ؟ "),
+        "Arabic": MessageLookupByLibrary.simpleMessage("عربي"),
+        "ChangePassword":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "DarkMode": MessageLookupByLibrary.simpleMessage("الوضع المظلم"),
         "DoYouHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب ؟ "),
+        "EditProfile":
+            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "English": MessageLookupByLibrary.simpleMessage("إنجليزي"),
+        "Findyourfavoritemeals":
+            MessageLookupByLibrary.simpleMessage("أبحث عن وجباتك المفضلة"),
+        "GeneralSetting": MessageLookupByLibrary.simpleMessage("الإعداد العام"),
+        "Logout": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
         "MealDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الوجبة"),
+        "Notification": MessageLookupByLibrary.simpleMessage("إشعارات"),
         "PleaseCheckYourNetWorkConnection":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء التحقق من اتصال الشبكة الخاصة بك"),
+        "Profile": MessageLookupByLibrary.simpleMessage("بيانات الحساب"),
+        "SendResetPasswordLink": MessageLookupByLibrary.simpleMessage(
+            "إرسال رابط إعادة تعيين كلمة المرور"),
+        "Settings": MessageLookupByLibrary.simpleMessage("إعدادات"),
         "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
             "أوافق على الشروط والأحكام الخاصة بك"),
         "TyrAgain": MessageLookupByLibrary.simpleMessage("حاول ثانياً"),
+        "Update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "email": MessageLookupByLibrary.simpleMessage("بريد إلكتروني"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة السر ؟"),
         "getStarted": MessageLookupByLibrary.simpleMessage("البدء"),
         "isEmpty": MessageLookupByLibrary.simpleMessage("فارغ!"),
+        "language": MessageLookupByLibrary.simpleMessage("لغة"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
         "noInternet": MessageLookupByLibrary.simpleMessage("لا يوجد إنترنت"),
@@ -46,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم التليفون"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "signUp": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "supTitleForgetPassword": MessageLookupByLibrary.simpleMessage(
             "أدخل بريدك الإلكتروني المسجل أدناه لتلقي تعليمات إعادة تعيين كلمة المرور"),

@@ -270,6 +270,146 @@ class S {
     );
   }
 
+  /// `Find your favorite meals`
+  String get Findyourfavoritemeals {
+    return Intl.message(
+      'Find your favorite meals',
+      name: 'Findyourfavoritemeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Reset Password Link`
+  String get SendResetPasswordLink {
+    return Intl.message(
+      'Send Reset Password Link',
+      name: 'SendResetPasswordLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get English {
+    return Intl.message(
+      'English',
+      name: 'English',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get Arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'Arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `language`
+  String get language {
+    return Intl.message(
+      'language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get Settings {
+    return Intl.message(
+      'Settings',
+      name: 'Settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get Profile {
+    return Intl.message(
+      'Profile',
+      name: 'Profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notification`
+  String get Notification {
+    return Intl.message(
+      'Notification',
+      name: 'Notification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get EditProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'EditProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get ChangePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'ChangePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get Logout {
+    return Intl.message(
+      'Logout',
+      name: 'Logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General setting`
+  String get GeneralSetting {
+    return Intl.message(
+      'General setting',
+      name: 'GeneralSetting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get DarkMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'DarkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get Update {
+    return Intl.message(
+      'Update',
+      name: 'Update',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Meal details`
   String get MealDetails {
     return Intl.message(

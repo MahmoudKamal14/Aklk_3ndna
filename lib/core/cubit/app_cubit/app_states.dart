@@ -30,6 +30,15 @@ class GetAllMealsErrorState extends AppStates {
   GetAllMealsErrorState(this.error);
 }
 
+class GetAllMealsFavoriteLoadingState extends AppStates {}
+
+class GetAllMealsFavoriteSuccessState extends AppStates {}
+
+class GetAllMealsFavoriteErrorState extends AppStates {
+  final String error;
+  GetAllMealsFavoriteErrorState(this.error);
+}
+
 class SocialLikePostsSuccessState extends AppStates {}
 
 class LikeMealsErrorState extends AppStates {

@@ -12,27 +12,25 @@ class NoInternetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 100),
-          Center(child: CustomImage(url: Assets.imagesNoInternet)),
-          const SizedBox(height: 150),
-          CustomTextNoInternet(text: S.of(context).oops),
-          const SizedBox(height: 5),
-          CustomTextNoInternet(text: S.of(context).noInternet),
-          const SizedBox(height: 15),
-          InternetSubTitle(),
-          const SizedBox(height: 30),
-          CustomButton(
-              text: S.of(context).TyrAgain,
-              width: 300,
-              onPressed: () {
-                //! BlocProvider
-                InternetConnectionCubit.get(context).checkConnectivity();
-              }),
-        ],
-      ),
+    return Column(
+      children: [
+        const SizedBox(height: 100),
+        Center(child: CustomImage(url: Assets.imagesNoInternet)),
+        const SizedBox(height: 150),
+        CustomTextNoInternet(text: S.of(context).oops),
+        const SizedBox(height: 5),
+        CustomTextNoInternet(text: S.of(context).noInternet),
+        const SizedBox(height: 15),
+        InternetSubTitle(),
+        const SizedBox(height: 30),
+        CustomButton(
+            text: S.of(context).TyrAgain,
+            width: 300,
+            onPressed: () {
+              //! BlocProvider
+              InternetConnectionCubit.get(context).checkConnectivity();
+            }),
+      ],
     );
   }
 }

@@ -24,20 +24,38 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account ? "),
+        "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "ChangePassword":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
+        "DarkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "DoYouHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Do you have an account ? "),
+        "EditProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "English": MessageLookupByLibrary.simpleMessage("English"),
+        "Findyourfavoritemeals":
+            MessageLookupByLibrary.simpleMessage("Find your favorite meals"),
+        "GeneralSetting":
+            MessageLookupByLibrary.simpleMessage("General setting"),
+        "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "MealDetails": MessageLookupByLibrary.simpleMessage("Meal details"),
+        "Notification": MessageLookupByLibrary.simpleMessage("Notification"),
         "PleaseCheckYourNetWorkConnection":
             MessageLookupByLibrary.simpleMessage(
                 "Please check your network connection."),
+        "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "SendResetPasswordLink":
+            MessageLookupByLibrary.simpleMessage("Send Reset Password Link"),
+        "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
             "I agree to your terms and conditions"),
         "TyrAgain": MessageLookupByLibrary.simpleMessage("TRY AGAIN"),
+        "Update": MessageLookupByLibrary.simpleMessage("Update"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
         "getStarted": MessageLookupByLibrary.simpleMessage("GET STARTED"),
         "isEmpty": MessageLookupByLibrary.simpleMessage("is empty!"),
+        "language": MessageLookupByLibrary.simpleMessage("language"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "noInternet": MessageLookupByLibrary.simpleMessage("NO INTERNET"),
