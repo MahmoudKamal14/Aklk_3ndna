@@ -1,3 +1,4 @@
+import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
 import 'package:aklk_3ndna/features/all_meals/presentaion/views/all_meals_view.dart';
 import 'package:aklk_3ndna/features/cart/presentaion/views/cart_view.dart';
 import 'package:aklk_3ndna/features/favorite/presentation/view/favorite.dart';
@@ -126,6 +127,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }) {
     return GestureDetector(
       onTap: () {
+        if (page == 3) AppCubit.get(context).getAllMealsFavorite();
         BlocProvider.of<BottomNavBarCubit>(context).changeSelectedIndex(page);
         pageController.animateToPage(page,
             duration: const Duration(milliseconds: 10),

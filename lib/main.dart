@@ -47,7 +47,9 @@ class CustomMultiBlocProvider extends StatelessWidget {
           create: (context) => AppCubit()
             ..mealModel
             ..allMeals
+            ..allMealsFavorite
             ..getAllMeals()
+            ..getAllMealsFavorite()
             ..getUserData(),
         ),
       ],

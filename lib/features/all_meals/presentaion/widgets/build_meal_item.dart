@@ -40,30 +40,27 @@ Widget buildMealItem(MealModel model, context) => InkWell(
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      children: [
-                        textFirebase(model, text: '${model.price}'),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        textFirebase(model, text: '${model.rate}'),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        if (model.rate == '1')
-                          for (int i = 0; i < 1; i++) iconStart(),
-                        if (model.rate == '2')
-                          for (int i = 0; i < 2; i++) iconStart(),
-                        if (model.rate == '3')
-                          for (int i = 0; i < 3; i++) iconStart(),
-                        if (model.rate == '4')
-                          for (int i = 0; i < 4; i++) iconStart(),
-                        if (model.rate == '5')
-                          for (int i = 0; i < 5; i++) iconStart(),
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      textFirebase(model, text: '${model.price}'),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      textFirebase(model, text: '${model.rate}'),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      if (model.rate == '1')
+                        for (int i = 0; i < 1; i++) iconStart(),
+                      if (model.rate == '2')
+                        for (int i = 0; i < 2; i++) iconStart(),
+                      if (model.rate == '3')
+                        for (int i = 0; i < 3; i++) iconStart(),
+                      if (model.rate == '4')
+                        for (int i = 0; i < 4; i++) iconStart(),
+                      if (model.rate == '5')
+                        for (int i = 0; i < 5; i++) iconStart(),
+                    ],
                   ),
                 ],
               ),

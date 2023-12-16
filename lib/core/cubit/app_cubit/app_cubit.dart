@@ -121,7 +121,7 @@ class AppCubit extends Cubit<AppStates> {
   List<MealModel> allMealsFavorite = [];
 
   void getAllMealsFavorite() {
-    allMeals.clear();
+    allMealsFavorite.clear();
     emit(GetAllMealsFavoriteLoadingState());
     FirebaseFirestore.instance
         .collection('users')

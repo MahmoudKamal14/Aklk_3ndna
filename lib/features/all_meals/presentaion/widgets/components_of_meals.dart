@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
+import 'package:aklk_3ndna/core/functions/show_toast.dart';
 import 'package:aklk_3ndna/core/models/meal_model.dart';
 import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
@@ -170,7 +172,10 @@ class mealNameRate extends StatelessWidget {
 class arrowFavorite extends StatelessWidget {
   const arrowFavorite({
     super.key,
+    required this.model,
   });
+
+  final MealModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +197,26 @@ class arrowFavorite extends StatelessWidget {
             ),
           ),
           Spacer(),
-          customFavorite(),
+          Container(
+            color: const Color(0xffD85E2C),
+            child: IconButton(
+              onPressed: () {
+                AppCubit.get(context).setAllMealsFavorite(
+                  name: model.name!,
+                  price: model.price!,
+                  description: model.description!,
+                  photo: model.photo!,
+                  rate: model.rate!,
+                );
+                showToast('تم إضافة ${model.name!} إلي المفضلة');
+              },
+              icon: Icon(
+                Icons.favorite_sharp,
+                size: 30,
+                color: Color(0xffFFFEEE),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -319,27 +343,6 @@ class Size_buttons extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class customFavorite extends StatelessWidget {
-  const customFavorite({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xffD85E2C),
-      child: IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.favorite_sharp,
-          size: 30,
-          color: Color(0xffFFFEEE),
-        ),
-      ),
     );
   }
 }

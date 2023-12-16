@@ -15,29 +15,32 @@ class CustomMealDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            color: Color(0xffFFFEEE),
-            height: 500,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                arrowFavorite(),
-                imageMeal(model: model),
-                mealNameRate(model: model),
-                nomOfMeals(model: model),
-                priceMeal(model: model),
-              ],
+      body: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Column(
+          children: [
+            Container(
+              color: Color(0xffFFFEEE),
+              height: 500,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  arrowFavorite(model: model),
+                  imageMeal(model: model),
+                  mealNameRate(model: model),
+                  nomOfMeals(model: model),
+                  priceMeal(model: model),
+                ],
+              ),
             ),
-          ),
-          mealDescription(model: model),
-          CustomButton(
-            text: S.of(context).orderNow,
-            onPressed: () {},
-            width: 120,
-          ),
-        ],
+            mealDescription(model: model),
+            CustomButton(
+              text: S.of(context).orderNow,
+              onPressed: () {},
+              width: 120,
+            ),
+          ],
+        ),
       ),
     );
   }
