@@ -43,10 +43,6 @@ class AppCubit extends Cubit<AppStates> {
     });
   }
 
-  List<MealModel> allMeals = [];
-  List<MealModel> mostPopular = [];
-  List<MealModel> mostSeller = [];
-
   void getAllMeals() {
     allMeals.clear();
     emit(GetAllMealsLoadingState());
@@ -61,6 +57,79 @@ class AppCubit extends Cubit<AppStates> {
       print(error);
     });
   }
+
+  // Pick an image
+  File? profileImageFile;
+  var picker = ImagePicker();
+  Future getProfileImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      profileImageFile = File(pickedFile.path);
+      print(pickedFile.path.toString());
+      emit(ProfileImagePickerSuccessState());
+    } else {
+      print('No Image Selected');
+      emit(ProfileImagePickerErrorState());
+    }
+  }
+
+  //upload Profile Image
+
+  void uploadProfileImage({
+    required String name,
+    required String phone,
+    required String email,
+  }) {
+    emit(UpdateProfileImageLoadingState());
+    FirebaseStorage.instance
+        .ref()
+        .child('users/${Uri.file(profileImageFile!.path).pathSegments.last}')
+        .putFile(profileImageFile!)
+        .then((value) {
+      value.ref.getDownloadURL().then((value) {
+        print(value);
+        updateUser(
+          name: name,
+          phone: phone,
+          image: value,
+          email: email,
+        );
+        emit(UpdateProfileImageLoadingState());
+      }).catchError((error) {
+        emit(UpdateProfileImageErrorState());
+      });
+    }).catchError((error) {
+      emit(UpdateProfileImageErrorState());
+    });
+  }
+
+  void updateUser({
+    required String name,
+    required String phone,
+    required String email,
+    String? image,
+  }) {
+    emit(UpdateUserDataLoadingState());
+    UserModel modelMap = UserModel(
+      name: name,
+      phone: phone,
+      image: image ?? userModel.image,
+      email: userModel.email,
+    );
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(userModel.email)
+        .update(modelMap.toMap())
+        .then((value) {
+      getUserData();
+    }).catchError((error) {
+      emit(UpdateUserDataErrorState(error.toString()));
+    });
+  }
+
+  List<MealModel> allMeals = [];
+  List<MealModel> mostPopular = [];
+  List<MealModel> mostSeller = [];
 
   // Category Of Most Popular
 
@@ -182,75 +251,6 @@ class AppCubit extends Cubit<AppStates> {
     });
   }
 
-// Pick an image
-  File? profileImageFile;
-  var picker = ImagePicker();
-  Future getProfileImage() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      profileImageFile = File(pickedFile.path);
-      print(pickedFile.path.toString());
-      emit(ProfileImagePickerSuccessState());
-    } else {
-      print('No Image Selected');
-      emit(ProfileImagePickerErrorState());
-    }
-  }
-
-  //upload Profile Image
-
-  void uploadProfileImage({
-    required String name,
-    required String phone,
-    required String email,
-  }) {
-    emit(UpdateProfileImageLoadingState());
-    FirebaseStorage.instance
-        .ref()
-        .child('users/${Uri.file(profileImageFile!.path).pathSegments.last}')
-        .putFile(profileImageFile!)
-        .then((value) {
-      value.ref.getDownloadURL().then((value) {
-        print(value);
-        updateUser(
-          name: name,
-          phone: phone,
-          image: value,
-          email: email,
-        );
-        emit(UpdateProfileImageLoadingState());
-      }).catchError((error) {
-        emit(UpdateProfileImageErrorState());
-      });
-    }).catchError((error) {
-      emit(UpdateProfileImageErrorState());
-    });
-  }
-
-  void updateUser({
-    required String name,
-    required String phone,
-    required String email,
-    String? image,
-  }) {
-    emit(UpdateUserDataLoadingState());
-    UserModel modelMap = UserModel(
-      name: name,
-      phone: phone,
-      image: image ?? userModel.image,
-      email: userModel.email,
-    );
-    FirebaseFirestore.instance
-        .collection('users')
-        .doc(userModel.email)
-        .update(modelMap.toMap())
-        .then((value) {
-      getUserData();
-    }).catchError((error) {
-      emit(UpdateUserDataErrorState(error.toString()));
-    });
-  }
-
   // Search by meal name
   List<MealModel> resultSearch = [];
   void Search(String text) async {
@@ -267,7 +267,7 @@ class AppCubit extends Cubit<AppStates> {
     });
   }
 
-  // Cart
+  // Get All Meals Favorite
 
   void addMealsToTheCart({
     required String name,
@@ -326,8 +326,6 @@ class AppCubit extends Cubit<AppStates> {
       print('The Favorite meal => ${mealModel}');
     }).catchError((onError) {});
   }
-
-  // Get All Meals Favorite
 
   List<MealModel> allMealsCart = [];
 
