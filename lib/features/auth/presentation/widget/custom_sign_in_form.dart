@@ -1,4 +1,5 @@
 import 'package:aklk_3ndna/core/functions/show_toast.dart';
+import 'package:aklk_3ndna/core/utils/app_colors.dart';
 import 'package:aklk_3ndna/core/utils/app_controller.dart';
 import 'package:aklk_3ndna/core/widgets/custom_button.dart';
 import 'package:aklk_3ndna/features/auth/cubit_auth/auth_cubit.dart';
@@ -33,9 +34,10 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
                   MaterialPageRoute(builder: (context) {
                   return BottomNavBar();
                 }))
-              : showToast("Please Verify Your Account");
+              : showToast(
+                  msg: "Please Verify Your Account", color: kPrimaryColor);
         } else if (state is SigninFailureState) {
-          showToast(state.errMessage);
+          showToast(msg: state.errMessage, color: Colors.red);
         }
       },
       builder: (context, state) => Form(

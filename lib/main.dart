@@ -48,6 +48,7 @@ class CustomMultiBlocProvider extends StatelessWidget {
             ..mealModel
             ..allMeals
             ..allMealsFavorite
+            ..allMealsCart
             ..getAllMeals()
             ..getAllMealsFavorite()
             ..getUserData(),

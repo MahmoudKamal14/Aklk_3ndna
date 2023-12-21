@@ -1,29 +1,68 @@
-import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
-import 'package:aklk_3ndna/core/cubit/app_cubit/app_states.dart';
 import 'package:aklk_3ndna/features/home/presentation/widgets/carousel_slider.dart';
+import 'package:aklk_3ndna/features/home/presentation/widgets/custom_most_popular.dart';
+import 'package:aklk_3ndna/features/home/presentation/widgets/custom_most_seller.dart';
 import 'package:aklk_3ndna/features/home/presentation/widgets/search_box_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomHomeWidget extends StatelessWidget {
   const CustomHomeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppCubit, AppStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 16, left: 5, right: 5),
-            child: ListView(
-              children: [
-                const SearchBoxWidget(),
-                const SizedBox(height: 10),
-                carouselSlider(),
-                SizedBox(height: 15),
-              ],
+    return ListView(
+      physics: BouncingScrollPhysics(),
+      children: [
+        const SearchBoxWidget(),
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: carouselSlider(),
+        ),
+        Container(
+          height: 0.2,
+          color: Colors.black,
+          width: double.infinity,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'Most Popular',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
-          );
-        });
+          ),
+        ),
+        Container(
+          height: 240,
+          width: 100,
+          child: Expanded(child: CustomMostPopularWidget()),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Container(
+            height: 0.2,
+            color: Colors.black,
+            width: double.infinity,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
+          child: Text(
+            'Most Seller',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Container(
+          height: 240,
+          width: 100,
+          child: Expanded(child: CustomMostSellerWidget()),
+        ),
+      ],
+    );
   }
 }

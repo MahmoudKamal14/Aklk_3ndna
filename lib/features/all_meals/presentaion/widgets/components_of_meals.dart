@@ -208,7 +208,9 @@ class arrowFavorite extends StatelessWidget {
                     photo: model.photo!,
                     rate: model.rate!,
                     isLiked: true);
-                showToast('تم إضافة ${model.name!} إلي المفضلة');
+                showToast(
+                    msg: 'تم إضافة ${model.name!} إلي المفضلة',
+                    color: Colors.green);
               },
               icon: Icon(
                 Icons.favorite_sharp,

@@ -5,8 +5,7 @@ import 'package:aklk_3ndna/core/models/meal_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-Widget buildMealFavoriteItem(MealModel model, context) =>
-    Favorite(model: model);
+Widget buildMealCartItem(MealModel model, context) => Favorite(model: model);
 
 class Favorite extends StatelessWidget {
   const Favorite({
@@ -23,7 +22,7 @@ class Favorite extends StatelessWidget {
         return Dismissible(
           key: Key(model.name!),
           onDismissed: (direction) {
-            cubit.deleteMealFromFavorite(
+            cubit.deleteMealsFromTheCart(
               name: model.name!,
               price: model.price!,
               description: model.description!,
@@ -32,7 +31,8 @@ class Favorite extends StatelessWidget {
               isLiked: false,
             );
             showToast(
-                msg: 'تم إزالة ${model.name!} من المفضلة', color: Colors.red);
+                msg: 'تم إزالة ${model.name!} من سلة الشراء',
+                color: Colors.red);
           },
           child: Card(
             elevation: 2,
@@ -52,9 +52,9 @@ class Favorite extends StatelessWidget {
                   Text('${model.price!} EGP'),
                 ],
               ),
-              trailing: const Icon(
-                Icons.favorite,
-                color: Colors.red,
+              trailing: Icon(
+                Icons.shopping_cart,
+                color: Colors.grey[900],
               ),
             ),
           ),

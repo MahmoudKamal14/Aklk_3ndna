@@ -30,6 +30,8 @@ class GetAllMealsErrorState extends AppStates {
   GetAllMealsErrorState(this.error);
 }
 
+//get All Favorite
+
 class GetAllMealsFavoriteLoadingState extends AppStates {}
 
 class GetAllMealsFavoriteSuccessState extends AppStates {}
@@ -68,3 +70,30 @@ class SearchMealLoadingState extends AppStates {}
 class SearchMealSuccessState extends AppStates {}
 
 class SearchMealErrorState extends AppStates {}
+
+// // Category Of Most Popular
+
+class GetMostPopularCategoriesLoadingState extends AppStates {}
+
+class GetMostPopularCategoriesSuccessState extends AppStates {}
+
+class GetMostPopularCategoriesErrorState extends AppStates {}
+
+// Category Of Most Seller
+
+class GetMostSellerCategoriesLoadingState extends AppStates {}
+
+class GetMostSellerCategoriesSuccessState extends AppStates {}
+
+class GetMostSellerCategoriesErrorState extends AppStates {}
+
+//get All Favorite
+
+class GetAllMealsCartLoadingState extends AppStates {}
+
+class GetAllMealsCartSuccessState extends AppStates {}
+
+class GetAllMealsCartErrorState extends AppStates {
+  final String error;
+  GetAllMealsCartErrorState(this.error);
+}

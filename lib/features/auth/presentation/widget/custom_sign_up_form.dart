@@ -1,6 +1,7 @@
 import 'package:aklk_3ndna/core/functions/get_flag.dart';
 import 'package:aklk_3ndna/core/functions/is_arabic.dart';
 import 'package:aklk_3ndna/core/functions/show_toast.dart';
+import 'package:aklk_3ndna/core/utils/app_colors.dart';
 import 'package:aklk_3ndna/core/utils/app_controller.dart';
 import 'package:aklk_3ndna/core/widgets/custom_button.dart';
 import 'package:aklk_3ndna/features/auth/cubit_auth/auth_cubit.dart';
@@ -30,10 +31,12 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignupSuccessState) {
-          showToast("Successfully,Check your email to verfiy your account");
+          showToast(
+              msg: "Successfully,Check your email to verfiy your account",
+              color: kPrimaryColor);
           Navigator.pushReplacementNamed(context, SignInView.id);
         } else if (state is SignupFailureState) {
-          showToast(state.errMessage);
+          showToast(msg: state.errMessage, color: Colors.red);
         }
       },
       builder: (context, state) => Form(

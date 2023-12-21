@@ -68,51 +68,48 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return BottomAppBar(
       color: Colors.white,
       height: MediaQuery.of(context).size.height * 0.083,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Directionality(
-          textDirection: TextDirection.ltr,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildSingleNavBarBottom(
-                context,
-                defaultIcon: IconlyLight.home,
-                page: 0,
-                label: "Home",
-                filledIcon: IconlyBold.home,
-              ),
-              _buildSingleNavBarBottom(
-                context,
-                defaultIcon: IconlyLight.category,
-                page: 1,
-                label: "ALl Meals",
-                filledIcon: IconlyBold.category,
-              ),
-              _buildSingleNavBarBottom(
-                context,
-                defaultIcon: IconlyLight.calendar,
-                page: 2,
-                label: "Orders",
-                filledIcon: IconlyBold.calendar,
-              ),
-              _buildSingleNavBarBottom(
-                context,
-                defaultIcon: IconlyLight.heart,
-                page: 3,
-                label: "Favorite",
-                filledIcon: IconlyBold.heart,
-              ),
-              _buildSingleNavBarBottom(
-                context,
-                defaultIcon: IconlyLight.setting,
-                page: 4,
-                label: "Settings",
-                filledIcon: IconlyBold.setting,
-              ),
-            ],
-          ),
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _buildSingleNavBarBottom(
+              context,
+              defaultIcon: IconlyLight.home,
+              page: 0,
+              label: "Home",
+              filledIcon: IconlyBold.home,
+            ),
+            _buildSingleNavBarBottom(
+              context,
+              defaultIcon: IconlyLight.category,
+              page: 1,
+              label: "ALl Meals",
+              filledIcon: IconlyBold.category,
+            ),
+            _buildSingleNavBarBottom(
+              context,
+              defaultIcon: IconlyLight.calendar,
+              page: 2,
+              label: "Orders",
+              filledIcon: IconlyBold.calendar,
+            ),
+            _buildSingleNavBarBottom(
+              context,
+              defaultIcon: IconlyLight.heart,
+              page: 3,
+              label: "Favorite",
+              filledIcon: IconlyBold.heart,
+            ),
+            _buildSingleNavBarBottom(
+              context,
+              defaultIcon: IconlyLight.setting,
+              page: 4,
+              label: "Settings",
+              filledIcon: IconlyBold.setting,
+            ),
+          ],
         ),
       ),
     );
@@ -128,6 +125,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return GestureDetector(
       onTap: () {
         if (page == 3) AppCubit.get(context).getAllMealsFavorite();
+        if (page == 2) AppCubit.get(context).getAllMealsCart();
         BlocProvider.of<BottomNavBarCubit>(context).changeSelectedIndex(page);
         pageController.animateToPage(page,
             duration: const Duration(milliseconds: 10),

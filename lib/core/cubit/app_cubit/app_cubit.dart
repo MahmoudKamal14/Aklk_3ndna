@@ -44,6 +44,8 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   List<MealModel> allMeals = [];
+  List<MealModel> mostPopular = [];
+  List<MealModel> mostSeller = [];
 
   void getAllMeals() {
     allMeals.clear();
@@ -51,14 +53,45 @@ class AppCubit extends Cubit<AppStates> {
     FirebaseFirestore.instance.collection('mealsAr').get().then((value) {
       value.docs.forEach((element) {
         allMeals.add(MealModel.fromJson(element.data()));
-        print(allMeals);
-        log('الوجبات جاهزة للعرض');
-        emit(GetAllMealsSuccessState());
       });
 
       emit(GetAllMealsSuccessState());
     }).catchError((error) {
       emit(GetAllMealsErrorState(error.toString()));
+      print(error);
+    });
+  }
+
+  // Category Of Most Popular
+
+  void getmostPopularCategories() {
+    mostPopular.clear();
+    emit(GetMostPopularCategoriesLoadingState());
+    FirebaseFirestore.instance.collection('mostPopular').get().then((value) {
+      value.docs.forEach((element) {
+        mostPopular.add(MealModel.fromJson(element.data()));
+      });
+
+      emit(GetMostPopularCategoriesSuccessState());
+    }).catchError((error) {
+      emit(GetMostPopularCategoriesErrorState());
+      print(error);
+    });
+  }
+
+// Category Of Most Seller
+
+  void getmostSellerCategories() {
+    mostSeller.clear();
+    emit(GetMostSellerCategoriesLoadingState());
+    FirebaseFirestore.instance.collection('mostSeller').get().then((value) {
+      value.docs.forEach((element) {
+        mostSeller.add(MealModel.fromJson(element.data()));
+      });
+
+      emit(GetMostSellerCategoriesSuccessState());
+    }).catchError((error) {
+      emit(GetMostSellerCategoriesErrorState());
       print(error);
     });
   }
@@ -140,8 +173,6 @@ class AppCubit extends Cubit<AppStates> {
         .then((value) {
       value.docs.forEach((element) {
         allMealsFavorite.add(MealModel.fromJson(element.data()));
-        print(allMealsFavorite);
-        emit(GetAllMealsFavoriteSuccessState());
       });
 
       emit(GetAllMealsFavoriteSuccessState());
@@ -265,5 +296,57 @@ class AppCubit extends Cubit<AppStates> {
       mealModel = MealModel.fromJson(meal.toMap());
       print('The Order meal => ${mealModel!.name}');
     }).catchError((onError) {});
+  }
+
+  void deleteMealsFromTheCart({
+    required String name,
+    required String price,
+    required String description,
+    required String photo,
+    required String rate,
+    required bool isLiked,
+  }) {
+    MealModel meal = MealModel(
+      name: name,
+      price: price,
+      description: description,
+      photo: photo,
+      rate: rate,
+      isLiked: false,
+    );
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+        .collection('orders')
+        .doc(name)
+        .delete()
+        .then((value) {
+      mealModel = MealModel.fromJson(meal.toMap());
+      print('The Favorite meal => ${mealModel}');
+    }).catchError((onError) {});
+  }
+
+  // Get All Meals Favorite
+
+  List<MealModel> allMealsCart = [];
+
+  void getAllMealsCart() {
+    allMealsCart.clear();
+    emit(GetAllMealsCartLoadingState());
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+        .collection('orders')
+        .get()
+        .then((value) {
+      value.docs.forEach((element) {
+        allMealsCart.add(MealModel.fromJson(element.data()));
+      });
+      emit(GetAllMealsCartSuccessState());
+    }).catchError((error) {
+      emit(GetAllMealsCartErrorState(error.toString()));
+      print(error);
+    });
   }
 }

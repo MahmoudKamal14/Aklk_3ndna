@@ -59,18 +59,6 @@ class SearchView extends StatelessWidget {
                 ),
               ),
             ),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                  size: 18,
-                ),
-              ),
-            ],
           ),
           body: Padding(
             padding: const EdgeInsets.only(top: 30),
@@ -84,7 +72,7 @@ class SearchView extends StatelessWidget {
   }
 
   Widget listOfItemSearch(BuildContext context) {
-    if (AppCubit.get(context).resultSearch.length > 0) {
+    if (AppCubit.get(context).resultSearch.isNotEmpty) {
       return ListView.separated(
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) => buildMealItem(

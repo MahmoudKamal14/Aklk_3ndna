@@ -25,13 +25,15 @@ class _CustomForgotPasswrodFormState extends State<CustomForgotPasswrodForm> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is ResetPasswordSuccessState) {
-          showToast("Check Your Email To Reset Your Password");
+          showToast(
+              msg: "Check Your Email To Reset Your Password",
+              color: kPrimaryColor);
           CustomForgotPasswrodForm.pushSignIn == true
               ? Navigator.pushReplacementNamed(context, SignInView.id)
               : Navigator.pop(context);
           CustomForgotPasswrodForm.pushSignIn = true;
         } else if (state is ResetPasswordFailureState) {
-          showToast(state.errMessage);
+          showToast(msg: state.errMessage, color: Colors.red);
         }
       },
       builder: (context, state) {
