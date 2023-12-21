@@ -202,18 +202,18 @@ class arrowFavorite extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 AppCubit.get(context).setAllMealsFavorite(
-                  name: model.name!,
-                  price: model.price!,
-                  description: model.description!,
-                  photo: model.photo!,
-                  rate: model.rate!,
-                );
+                    name: model.name!,
+                    price: model.price!,
+                    description: model.description!,
+                    photo: model.photo!,
+                    rate: model.rate!,
+                    isLiked: true);
                 showToast('تم إضافة ${model.name!} إلي المفضلة');
               },
               icon: Icon(
                 Icons.favorite_sharp,
                 size: 30,
-                color: Color(0xffFFFEEE),
+                color: model.isLiked == true ? Colors.red : Colors.white,
               ),
             ),
           ),

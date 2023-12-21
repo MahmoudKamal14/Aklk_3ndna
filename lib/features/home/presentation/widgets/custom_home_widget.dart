@@ -7,10 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomHomeWidget extends StatelessWidget {
   const CustomHomeWidget({super.key});
-// BlocConsumer<AppCubit, AppStates>(
-//       listener: (context, state) {},
-//       builder: (context, state) {
-//         var user = AppCubit.get(context).userModel;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(

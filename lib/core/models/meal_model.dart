@@ -1,6 +1,6 @@
 class MealModel {
   late String? name;
-  late String? uid;
+  late bool? isLiked;
   late String? photo;
   late String? price;
   late String? rate;
@@ -9,7 +9,7 @@ class MealModel {
     this.name,
     this.price,
     this.description,
-    this.uid,
+    this.isLiked,
     this.photo,
     this.rate,
   });
@@ -19,7 +19,7 @@ class MealModel {
     price = json['price'];
     rate = json['rate'];
     description = json['description'];
-    uid = json['uid'];
+    isLiked = json['isLiked'];
     photo = json['photo'];
   }
 
@@ -29,7 +29,7 @@ class MealModel {
       'price': price,
       'description': description,
       'rate': rate,
-      'uid': uid,
+      'isLiked': isLiked,
       'photo': photo,
     };
   }

@@ -11,8 +11,8 @@ class SearchBoxWidget extends StatelessWidget {
       width: double.infinity,
       height: 60,
       child: Card(
-        color: Colors.grey,
-        elevation: 1,
+        color: Colors.white,
+        elevation: 3,
         child: InkWell(
           onTap: () {
             Navigator.push(

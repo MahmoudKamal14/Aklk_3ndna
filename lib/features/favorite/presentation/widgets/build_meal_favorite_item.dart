@@ -24,11 +24,13 @@ class Favorite extends StatelessWidget {
           key: Key(model.name!),
           onDismissed: (direction) {
             cubit.deleteMealFromFavorite(
-                name: model.name!,
-                price: model.price!,
-                description: model.description!,
-                photo: model.photo!,
-                rate: model.rate!);
+              name: model.name!,
+              price: model.price!,
+              description: model.description!,
+              photo: model.photo!,
+              rate: model.rate!,
+              isLiked: false,
+            );
             showToast('تم إزالة ${model.name!} من المفضلة');
           },
           child: Card(

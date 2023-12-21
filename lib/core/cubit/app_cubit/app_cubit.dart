@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_states.dart';
@@ -47,7 +48,7 @@ class AppCubit extends Cubit<AppStates> {
   void getAllMeals() {
     allMeals.clear();
     emit(GetAllMealsLoadingState());
-    FirebaseFirestore.instance.collection('meals').get().then((value) {
+    FirebaseFirestore.instance.collection('mealsAr').get().then((value) {
       value.docs.forEach((element) {
         allMeals.add(MealModel.fromJson(element.data()));
         print(allMeals);
@@ -70,24 +71,29 @@ class AppCubit extends Cubit<AppStates> {
     required String description,
     required String photo,
     required String rate,
+    required bool isLiked,
   }) {
     MealModel meal = MealModel(
-        name: name,
-        price: price,
-        description: description,
-        photo: photo,
-        rate: rate);
+      name: name,
+      price: price,
+      description: description,
+      photo: photo,
+      rate: rate,
+      isLiked: true,
+    );
 
-    FirebaseFirestore.instance
-        .collection('users')
-        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
-        .collection('favorites')
-        .doc(name)
-        .set(meal.toMap())
-        .then((value) {
-      mealModel = MealModel.fromJson(meal.toMap());
-      print('The Favorite meal => ${mealModel!.name}');
-    }).catchError((onError) {});
+    if (isLiked == true) {
+      FirebaseFirestore.instance
+          .collection('users')
+          .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+          .collection('favorites')
+          .doc(name)
+          .set(meal.toMap())
+          .then((value) {
+        mealModel = MealModel.fromJson(meal.toMap());
+        print('The Favorite meal => ${mealModel!.name}');
+      }).catchError((onError) {});
+    }
   }
 
   void deleteMealFromFavorite({
@@ -96,13 +102,16 @@ class AppCubit extends Cubit<AppStates> {
     required String description,
     required String photo,
     required String rate,
+    required bool isLiked,
   }) {
     MealModel meal = MealModel(
-        name: name,
-        price: price,
-        description: description,
-        photo: photo,
-        rate: rate);
+      name: name,
+      price: price,
+      description: description,
+      photo: photo,
+      rate: rate,
+      isLiked: false,
+    );
 
     FirebaseFirestore.instance
         .collection('users')
@@ -212,19 +221,49 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   // Search by meal name
-
   List<MealModel> resultSearch = [];
   void Search(String text) async {
     emit(SearchMealLoadingState());
-    await FirebaseFirestore.instance
-        .collection('meals')
-        .where('name')
-        .get()
-        .then((value) {
-      resultSearch = value.docs.map((e) => e.data()).cast<MealModel>().toList();
+    resultSearch.clear();
+    allMeals.forEach((element) {
+      if (element.name!.contains(text)) {
+        resultSearch.add(element);
+      }
+      if (text == nullptr) {
+        resultSearch.clear();
+      }
       emit(SearchMealSuccessState());
-    }).catchError((onError) {
-      emit(SearchMealErrorState());
     });
+  }
+
+  // Cart
+
+  void addMealsToTheCart({
+    required String name,
+    required String price,
+    required String description,
+    required String photo,
+    required String rate,
+    required bool isLiked,
+  }) {
+    MealModel meal = MealModel(
+      name: name,
+      price: price,
+      description: description,
+      photo: photo,
+      rate: rate,
+      isLiked: isLiked,
+    );
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(getIt<CacheHelper>().getDataString(key: AuthCubit.primaryKey))
+        .collection('orders')
+        .doc(name)
+        .set(meal.toMap())
+        .then((value) {
+      mealModel = MealModel.fromJson(meal.toMap());
+      print('The Order meal => ${mealModel!.name}');
+    }).catchError((onError) {});
   }
 }
