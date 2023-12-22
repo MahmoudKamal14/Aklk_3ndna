@@ -13,9 +13,9 @@ Widget CustomMostSellerWidget() {
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => BuildItemMealCategory(
-                AppCubit.get(context).allMeals[index + 4], context),
+                AppCubit.get(context).allMeals[index + 6], context),
             separatorBuilder: (context, index) => const SizedBox(height: 10),
-            itemCount: AppCubit.get(context).allMeals.length - 4,
+            itemCount: AppCubit.get(context).allMeals.length - 6,
           );
         } else {
           return const Center(child: CircularProgressIndicator());

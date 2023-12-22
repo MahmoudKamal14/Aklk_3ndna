@@ -36,35 +36,32 @@ Widget BuildItemMealCategory(MealModel model, context) => InkWell(
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    model.name!,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      AppCubit.get(context).setAllMealsFavorite(
-                          name: model.name!,
-                          price: model.price!,
-                          description: model.description!,
-                          photo: model.photo!,
-                          rate: model.rate!,
-                          isLiked: true);
-                      showToast(
-                        msg: 'تم إضافة ${model.name!} إلي المفضلة',
-                        color: Colors.green,
-                      );
-                    },
-                    icon: Icon(
-                      Icons.favorite_border,
-                    ),
-                  )
-                ],
-              ),
+            Row(
+              children: [
+                Text(
+                  model.name!,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                IconButton(
+                  onPressed: () {
+                    AppCubit.get(context).setAllMealsFavorite(
+                      name: model.name!,
+                      price: model.price!,
+                      description: model.description!,
+                      photo: model.photo!,
+                      rate: model.rate!,
+                    );
+                    print(model.isLiked);
+                    showToast(
+                      msg: 'تم إضافة ${model.name!} إلي المفضلة',
+                      color: Colors.green,
+                    );
+                  },
+                  icon: Icon(model.isLiked == true
+                      ? Icons.favorite
+                      : Icons.favorite_border),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -84,11 +81,12 @@ Widget BuildItemMealCategory(MealModel model, context) => InkWell(
                         borderRadius: BorderRadius.circular(8),
                         color: const Color(0xffD85E2C)),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           model.rate!,
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
@@ -98,7 +96,7 @@ Widget BuildItemMealCategory(MealModel model, context) => InkWell(
                         Icon(
                           CupertinoIcons.star_fill,
                           color: Colors.white,
-                          size: 15,
+                          size: 14,
                         ),
                       ],
                     ),

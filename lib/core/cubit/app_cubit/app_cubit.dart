@@ -43,21 +43,6 @@ class AppCubit extends Cubit<AppStates> {
     });
   }
 
-  void getAllMeals() {
-    allMeals.clear();
-    emit(GetAllMealsLoadingState());
-    FirebaseFirestore.instance.collection('mealsAr').get().then((value) {
-      value.docs.forEach((element) {
-        allMeals.add(MealModel.fromJson(element.data()));
-      });
-
-      emit(GetAllMealsSuccessState());
-    }).catchError((error) {
-      emit(GetAllMealsErrorState(error.toString()));
-      print(error);
-    });
-  }
-
   // Pick an image
   File? profileImageFile;
   var picker = ImagePicker();
@@ -131,6 +116,21 @@ class AppCubit extends Cubit<AppStates> {
   List<MealModel> mostPopular = [];
   List<MealModel> mostSeller = [];
 
+  void getAllMeals() {
+    allMeals.clear();
+    emit(GetAllMealsLoadingState());
+    FirebaseFirestore.instance.collection('mealsAr').get().then((value) {
+      value.docs.forEach((element) {
+        allMeals.add(MealModel.fromJson(element.data()));
+      });
+
+      emit(GetAllMealsSuccessState());
+    }).catchError((error) {
+      emit(GetAllMealsErrorState(error.toString()));
+      print(error);
+    });
+  }
+
   // Category Of Most Popular
 
   void getmostPopularCategories() {
@@ -167,13 +167,14 @@ class AppCubit extends Cubit<AppStates> {
 
   // Set All Meals Favorite
 
+  bool colorIcon = false;
   void setAllMealsFavorite({
     required String name,
     required String price,
     required String description,
     required String photo,
     required String rate,
-    required bool isLiked,
+    bool isLiked = true,
   }) {
     MealModel meal = MealModel(
       name: name,
@@ -181,9 +182,9 @@ class AppCubit extends Cubit<AppStates> {
       description: description,
       photo: photo,
       rate: rate,
-      isLiked: true,
+      isLiked: isLiked,
     );
-
+    colorIcon = true;
     if (isLiked == true) {
       FirebaseFirestore.instance
           .collection('users')
@@ -193,7 +194,9 @@ class AppCubit extends Cubit<AppStates> {
           .set(meal.toMap())
           .then((value) {
         mealModel = MealModel.fromJson(meal.toMap());
+
         print('The Favorite meal => ${mealModel!.name}');
+        emit(AddMealsFavoriteSuccessState());
       }).catchError((onError) {});
     }
   }
@@ -204,7 +207,7 @@ class AppCubit extends Cubit<AppStates> {
     required String description,
     required String photo,
     required String rate,
-    required bool isLiked,
+    bool isLiked = false,
   }) {
     MealModel meal = MealModel(
       name: name,
@@ -212,7 +215,7 @@ class AppCubit extends Cubit<AppStates> {
       description: description,
       photo: photo,
       rate: rate,
-      isLiked: false,
+      isLiked: isLiked,
     );
 
     FirebaseFirestore.instance

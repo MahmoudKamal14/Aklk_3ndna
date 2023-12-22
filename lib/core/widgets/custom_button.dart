@@ -7,8 +7,10 @@ class CustomButton extends StatelessWidget {
       required this.text,
       required this.onPressed,
       this.color,
-      this.width});
+      this.width,
+      this.textColor});
   final String text;
+  final Color? textColor;
   final VoidCallback? onPressed;
   final Color? color;
   final double? width;
@@ -27,8 +29,8 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: const TextStyle(
-            //color: Colors.black,//!
+          style: TextStyle(
+            color: textColor,
             fontSize: 18,
           ),
         ),

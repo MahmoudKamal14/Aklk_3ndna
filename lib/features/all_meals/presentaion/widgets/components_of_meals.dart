@@ -54,40 +54,36 @@ class _nomOfMealsState extends State<nomOfMeals> {
           IconButton(
             onPressed: () {
               setState(() {
-                if (n >= 1) {
+                if (n > 1) {
                   n--;
                 }
               });
             },
             icon: const Icon(
-              CupertinoIcons.minus_circle_fill,
-              size: 30,
+              CupertinoIcons.minus_rectangle_fill,
+              size: 25,
             ),
             color: const Color(0xffD85E2C),
           ),
           Text(
             '$n',
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
           IconButton(
             onPressed: () {
               setState(() {
-                if (n >= 0) {
-                  n++;
-                }
+                n++;
               });
             },
             icon: const Icon(
-              CupertinoIcons.add_circled_solid,
-              size: 30,
+              CupertinoIcons.plus_rectangle_fill,
+              size: 25,
             ),
             color: const Color(0xffD85E2C),
           ),
-          Spacer(),
-          Size_buttons(),
         ],
       ),
     );
@@ -104,13 +100,9 @@ class imageMeal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: 220,
-      color: Color(0xffFFFEEE),
-      child: Image(
-        image: NetworkImage(model.photo!),
-      ),
+    return Image(
+      image: NetworkImage(model.photo!),
+      width: 340,
     );
   }
 }
@@ -138,9 +130,11 @@ class mealNameRate extends StatelessWidget {
           ),
           Spacer(),
           Container(
-            color: const Color(0xffD85E2C),
-            width: 80,
             height: 30,
+            width: 80,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: const Color(0xffD85E2C)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -156,9 +150,9 @@ class mealNameRate extends StatelessWidget {
                   width: 10,
                 ),
                 Icon(
-                  Icons.star_rate,
+                  CupertinoIcons.star_fill,
                   color: Color(0xffFFFEEE),
-                  size: 25,
+                  size: 22,
                 ),
               ],
             ),
@@ -169,57 +163,23 @@ class mealNameRate extends StatelessWidget {
   }
 }
 
-class arrowFavorite extends StatelessWidget {
-  const arrowFavorite({
+class arrow extends StatelessWidget {
+  const arrow({
     super.key,
-    required this.model,
   });
-
-  final MealModel model;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            color: const Color(0xffD85E2C),
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.arrow_back_ios_new,
-                color: Color(0xffFFFEEE),
-              ),
-            ),
-          ),
-          Spacer(),
-          Container(
-            color: const Color(0xffD85E2C),
-            child: IconButton(
-              onPressed: () {
-                AppCubit.get(context).setAllMealsFavorite(
-                    name: model.name!,
-                    price: model.price!,
-                    description: model.description!,
-                    photo: model.photo!,
-                    rate: model.rate!,
-                    isLiked: true);
-                showToast(
-                    msg: 'تم إضافة ${model.name!} إلي المفضلة',
-                    color: Colors.green);
-              },
-              icon: Icon(
-                Icons.favorite_sharp,
-                size: 30,
-                color: model.isLiked == true ? Colors.red : Colors.white,
-              ),
-            ),
-          ),
-        ],
+      padding: const EdgeInsets.all(10),
+      child: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(
+          Icons.arrow_forward_ios,
+          color: Color(0xffFFFEEE),
+        ),
       ),
     );
   }
@@ -262,7 +222,7 @@ class mealDescription extends StatelessWidget {
                   maxLines: 4,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 15,
                   ),
                 ),
               ),
@@ -274,77 +234,29 @@ class mealDescription extends StatelessWidget {
   }
 }
 
-class Size_buttons extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Container(
-                width: 22,
-                height: 22,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border:
-                      Border.all(width: 1.8, color: const Color(0xffD85E2C)),
-                ),
-                child: const Center(
-                  child: Text(
-                    "S",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                width: 22,
-                height: 22,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border:
-                      Border.all(width: 1.8, color: const Color(0xffD85E2C)),
-                ),
-                child: const Center(
-                  child: Text(
-                    "M",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                width: 22,
-                height: 22,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border:
-                      Border.all(width: 1.8, color: const Color(0xffD85E2C)),
-                ),
-                child: const Center(
-                  child: Text(
-                    "L",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                ),
-              ),
-            )
-          ],
+Widget customFavorite(MealModel model, context) => Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: IconButton(
+        onPressed: () {
+          AppCubit.get(context).setAllMealsFavorite(
+            name: model.name!,
+            price: model.price!,
+            description: model.description!,
+            photo: model.photo!,
+            rate: model.rate!,
+            isLiked: true,
+          );
+          showToast(
+            msg: 'تم إضافة ${model.name!} إلي المفضلة',
+            color: Colors.green,
+          );
+        },
+        icon: Icon(
+          AppCubit.get(context).colorIcon == false
+              ? CupertinoIcons.heart_fill
+              : Icons.favorite,
+          color: Colors.white,
+          size: 30,
         ),
-      ],
+      ),
     );
-  }
-}

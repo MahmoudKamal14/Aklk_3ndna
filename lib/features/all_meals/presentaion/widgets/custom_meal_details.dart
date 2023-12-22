@@ -6,7 +6,6 @@ import 'package:aklk_3ndna/core/models/meal_model.dart';
 import 'package:aklk_3ndna/core/widgets/custom_button.dart';
 import 'package:aklk_3ndna/features/all_meals/presentaion/widgets/components_of_meals.dart';
 import 'package:aklk_3ndna/generated/l10n.dart';
-
 import 'package:flutter/material.dart';
 
 class CustomMealDetails extends StatelessWidget {
@@ -17,41 +16,69 @@ class CustomMealDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Column(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Color(0xffD85E2C),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: Stack(
           children: [
-            Container(
-              color: Color(0xffFFFEEE),
-              height: 500,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  arrowFavorite(model: model),
-                  imageMeal(model: model),
-                  mealNameRate(model: model),
-                  nomOfMeals(model: model),
-                  priceMeal(model: model),
-                ],
+            Positioned(
+              child: arrow(),
+              top: 0,
+              left: 0,
+            ),
+            Positioned(
+              child: customFavorite(model, context),
+              top: 0,
+              right: 0,
+            ),
+            Positioned(
+              bottom: 0,
+              height: 550,
+              width: 393,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xffFFFEEE),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40))),
+                child: Column(
+                  children: [
+                    //
+                    SizedBox(
+                      height: 130,
+                    ),
+                    mealNameRate(model: model),
+                    nomOfMeals(model: model),
+                    priceMeal(model: model),
+                    mealDescription(model: model),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: CustomButton(
+                        color: Color(0xffD85E2C),
+                        text: S.of(context).orderNow,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          AppCubit.get(context).addMealsToTheCart(
+                            name: model.name!,
+                            price: model.price!,
+                            description: model.description!,
+                            photo: model.photo!,
+                            rate: model.rate!,
+                            isLiked: true,
+                          );
+                          showToast(
+                              msg: 'تم إضافة ${model.name!} إلي سلة المشتريات',
+                              color: Colors.green);
+                        },
+                        width: 250,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            mealDescription(model: model),
-            CustomButton(
-              text: S.of(context).orderNow,
-              onPressed: () {
-                AppCubit.get(context).addMealsToTheCart(
-                    name: model.name!,
-                    price: model.price!,
-                    description: model.description!,
-                    photo: model.photo!,
-                    rate: model.rate!,
-                    isLiked: true);
-                showToast(
-                    msg: 'تم إضافة ${model.name!} إلي سلة الشراء',
-                    color: Colors.green);
-              },
-              width: 120,
-            ),
+            Positioned(bottom: 410, right: 10, child: imageMeal(model: model)),
           ],
         ),
       ),

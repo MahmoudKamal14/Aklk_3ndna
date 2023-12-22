@@ -21,7 +21,7 @@ class CustomCartWidget extends StatelessWidget {
             itemCount: AppCubit.get(context).allMealsCart.length,
           );
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: Text('لا توجد وجبات في سلة المشتريات'));
         }
       },
     );

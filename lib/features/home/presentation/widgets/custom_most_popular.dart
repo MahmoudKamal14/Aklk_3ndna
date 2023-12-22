@@ -13,7 +13,7 @@ Widget CustomMostPopularWidget() {
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => BuildItemMealCategory(
-                AppCubit.get(context).allMeals[index], context),
+                AppCubit.get(context).allMeals[index + 3], context),
             separatorBuilder: (context, index) => const SizedBox(height: 10),
             itemCount: AppCubit.get(context).allMeals.length - 6,
           );

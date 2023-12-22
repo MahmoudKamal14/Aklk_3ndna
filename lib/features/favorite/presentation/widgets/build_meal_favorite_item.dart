@@ -49,7 +49,7 @@ class Favorite extends StatelessWidget {
               subtitle: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${model.price!} EGP'),
+                  Text('${model.price!}'),
                 ],
               ),
               trailing: const Icon(

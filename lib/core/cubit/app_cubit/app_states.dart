@@ -97,3 +97,11 @@ class GetAllMealsCartErrorState extends AppStates {
   final String error;
   GetAllMealsCartErrorState(this.error);
 }
+
+//Add Meal to Favorite
+
+class AddMealsFavoriteSuccessState extends AppStates {}
+
+//Delete Meal from  Favorite
+
+class DeleteMealsFavoriteSuccessState extends AppStates {}

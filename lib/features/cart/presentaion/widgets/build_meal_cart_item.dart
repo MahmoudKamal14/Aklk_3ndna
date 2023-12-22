@@ -42,6 +42,7 @@ class Favorite extends StatelessWidget {
             shadowColor: const Color(0xffFFFEEE),
             child: ListTile(
               leading: CircleAvatar(
+                radius: 40,
                 backgroundColor: Colors.transparent,
                 backgroundImage: NetworkImage(model.photo!),
               ),
@@ -49,7 +50,7 @@ class Favorite extends StatelessWidget {
               subtitle: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${model.price!} EGP'),
+                  Text('${model.price!}'),
                 ],
               ),
               trailing: Icon(

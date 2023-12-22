@@ -90,10 +90,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
             _buildSingleNavBarBottom(
               context,
-              defaultIcon: IconlyLight.calendar,
+              defaultIcon: IconlyLight.buy,
               page: 2,
-              label: "Orders",
-              filledIcon: IconlyBold.calendar,
+              label: "Cart",
+              filledIcon: IconlyBold.buy,
             ),
             _buildSingleNavBarBottom(
               context,

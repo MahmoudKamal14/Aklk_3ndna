@@ -23,7 +23,7 @@ class CustomFavoriteWidget extends StatelessWidget {
             itemCount: AppCubit.get(context).allMealsFavorite.length,
           );
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: Text('لا توجد وجبات في المفضلة'));
         }
       },
     );
