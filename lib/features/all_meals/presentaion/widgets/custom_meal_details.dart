@@ -78,7 +78,7 @@ class CustomMealDetails extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(bottom: 410, right: 10, child: imageMeal(model: model)),
+            Positioned(bottom: 450, right: 15, child: imageMeal(model: model)),
           ],
         ),
       ),
