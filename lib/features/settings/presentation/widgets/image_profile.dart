@@ -73,7 +73,7 @@ class UpdateProfileImage extends StatelessWidget {
                 ButtonStyle(backgroundColor: MaterialStatePropertyAll(color)),
             onPressed: () {
               AppCubit.get(context).uploadProfileImage(
-                name: nameController.text,
+                userName: nameController.text,
                 phone: phoneController.text,
                 email: emailController.text,
               );

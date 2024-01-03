@@ -38,7 +38,7 @@ class SplashView extends StatelessWidget {
       splash: Image.asset(
         isArabic()
             ? Assets.imagesSplashAklk3ndnaAr
-            : Assets.imagesSplashAklk3ndnaEn,
+            : Assets.imagesSplashAklk3ndnaAr,
       ),
       splashIconSize: 500,
       pageTransitionType: PageTransitionType.bottomToTop,

@@ -36,6 +36,11 @@
     "DarkMode":"الوضع المظلم",
     "Update":"تحديث",
     "MealDetails":"تفاصيل الوجبة",
-    "orderNow":"أطلب الأن"
-
+    "orderNow":"أطلب الأن",
+    "home":"الصفحة الرئيسية",
+    "favorite":"المفضلة",
+    "cart":"المشتريات",
+    "allMeals":"الوجبات",
+    "mostPopular":"الأكثر شعبية",
+    "mostSeller":"الأكثر مبيعا"
 }

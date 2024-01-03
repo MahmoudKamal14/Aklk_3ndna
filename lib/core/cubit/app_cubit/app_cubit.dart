@@ -36,7 +36,7 @@ class AppCubit extends Cubit<AppStates> {
       print(value.data());
       userModel = UserModel.fromJson(value.data()!);
 
-      log('Name => ${userModel.name}');
+      log('Name => ${userModel.userName}');
       emit(GetUserDataSuccessState());
     }).catchError((onError) {
       emit(GetUserDataErrorState(onError.toString()));
@@ -61,7 +61,7 @@ class AppCubit extends Cubit<AppStates> {
   //upload Profile Image
 
   void uploadProfileImage({
-    required String name,
+    required String userName,
     required String phone,
     required String email,
   }) {
@@ -74,7 +74,7 @@ class AppCubit extends Cubit<AppStates> {
       value.ref.getDownloadURL().then((value) {
         print(value);
         updateUser(
-          name: name,
+          userName: userName,
           phone: phone,
           image: value,
           email: email,
@@ -89,14 +89,14 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   void updateUser({
-    required String name,
+    required String userName,
     required String phone,
     required String email,
     String? image,
   }) {
     emit(UpdateUserDataLoadingState());
     UserModel modelMap = UserModel(
-      name: name,
+      userName: userName,
       phone: phone,
       image: image ?? userModel.image,
       email: userModel.email,

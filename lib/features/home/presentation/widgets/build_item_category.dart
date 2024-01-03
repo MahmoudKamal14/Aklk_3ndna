@@ -86,9 +86,10 @@ Widget BuildItemMealCategory(MealModel model, context) => InkWell(
                         Text(
                           model.rate!,
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                         SizedBox(
                           width: 5,
@@ -106,7 +107,7 @@ Widget BuildItemMealCategory(MealModel model, context) => InkWell(
             ),
             const SizedBox(
               height: 5,
-            )
+            ),
           ],
         ),
       ),

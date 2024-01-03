@@ -2,6 +2,7 @@ import 'package:aklk_3ndna/features/home/presentation/widgets/carousel_slider.da
 import 'package:aklk_3ndna/features/home/presentation/widgets/custom_most_popular.dart';
 import 'package:aklk_3ndna/features/home/presentation/widgets/custom_most_seller.dart';
 import 'package:aklk_3ndna/features/home/presentation/widgets/search_box_widget.dart';
+import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CustomHomeWidget extends StatelessWidget {
@@ -25,7 +26,7 @@ class CustomHomeWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            'Most Popular',
+            '${S.of(context).mostPopular}',
             style: TextStyle(
               color: Colors.black,
               fontSize: 20,
@@ -49,7 +50,7 @@ class CustomHomeWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
           child: Text(
-            'Most Seller',
+            '${S.of(context).mostSeller}',
             style: TextStyle(
               color: Colors.black,
               fontSize: 20,

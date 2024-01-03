@@ -24,19 +24,19 @@ class CustomMealDetails extends StatelessWidget {
           children: [
             Positioned(
               child: arrow(),
-              top: 0,
+              top: 10,
               left: 0,
             ),
             Positioned(
               child: customFavorite(model, context),
-              top: 0,
+              top: 10,
               right: 0,
             ),
             Positioned(
               bottom: 0,
               height: 550,
-              width: 393,
               child: Container(
+                width: 416,
                 decoration: BoxDecoration(
                     color: Color(0xffFFFEEE),
                     borderRadius: BorderRadius.only(
@@ -78,7 +78,7 @@ class CustomMealDetails extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(bottom: 450, right: 15, child: imageMeal(model: model)),
+            Positioned(bottom: 440, right: 15, child: imageMeal(model: model)),
           ],
         ),
       ),

@@ -21,7 +21,7 @@ class EditProfileView extends StatelessWidget {
         var user = AppCubit.get(context).userModel;
         var editProfileImage = AppCubit.get(context).profileImageFile;
 
-        nameController.text = user.name;
+        nameController.text = user.userName;
         phoneController.text = user.phone;
         return Directionality(
           textDirection: TextDirection.ltr,
@@ -67,7 +67,7 @@ class EditProfileView extends StatelessWidget {
                       type: TextInputType.name,
                       prefix: Icons.person_2,
                       label: 'Name',
-                      hintText: '${user.name}',
+                      hintText: '${user.userName}',
                     ),
                   ),
                   Padding(
@@ -86,7 +86,7 @@ class EditProfileView extends StatelessWidget {
                     child: CustomButton(
                         onPressed: () {
                           AppCubit.get(context).updateUser(
-                            name: nameController.text,
+                            userName: nameController.text,
                             phone: phoneController.text,
                             email: emailController.text,
                           );

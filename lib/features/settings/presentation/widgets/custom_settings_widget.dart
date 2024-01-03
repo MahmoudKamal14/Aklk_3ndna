@@ -88,7 +88,7 @@ class CustomProfileSampleDataSection extends StatelessWidget {
                     color: Colors.amber,
                   ),
                 ),
-                title: Text(user.name),
+                title: Text(user.userName),
                 subtitle: Text(user.email),
               ),
             ],

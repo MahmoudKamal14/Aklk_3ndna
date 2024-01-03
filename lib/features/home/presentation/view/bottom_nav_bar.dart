@@ -5,6 +5,7 @@ import 'package:aklk_3ndna/features/favorite/presentation/view/favorite.dart';
 import 'package:aklk_3ndna/features/home/presentation/logic/bottom_nav_bar_cubit.dart';
 import 'package:aklk_3ndna/features/home/presentation/view/homeView.dart';
 import 'package:aklk_3ndna/features/settings/presentation/views/Settings_view.dart';
+import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -78,35 +79,35 @@ class _BottomNavBarState extends State<BottomNavBar> {
               context,
               defaultIcon: IconlyLight.home,
               page: 0,
-              label: "Home",
+              label: "${S.of(context).home}",
               filledIcon: IconlyBold.home,
             ),
             _buildSingleNavBarBottom(
               context,
               defaultIcon: IconlyLight.category,
               page: 1,
-              label: "ALl Meals",
+              label: "${S.of(context).allMeals}",
               filledIcon: IconlyBold.category,
             ),
             _buildSingleNavBarBottom(
               context,
               defaultIcon: IconlyLight.buy,
               page: 2,
-              label: "Cart",
+              label: "${S.of(context).cart}",
               filledIcon: IconlyBold.buy,
             ),
             _buildSingleNavBarBottom(
               context,
               defaultIcon: IconlyLight.heart,
               page: 3,
-              label: "Favorite",
+              label: "${S.of(context).favorite}",
               filledIcon: IconlyBold.heart,
             ),
             _buildSingleNavBarBottom(
               context,
               defaultIcon: IconlyLight.setting,
               page: 4,
-              label: "Settings",
+              label: "${S.of(context).Settings}",
               filledIcon: IconlyBold.setting,
             ),
           ],

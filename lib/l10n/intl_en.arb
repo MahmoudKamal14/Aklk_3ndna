@@ -36,5 +36,11 @@
     "DarkMode":"Dark Mode",
     "Update":"Update",
     "MealDetails":"Meal details",
-    "orderNow":"Order Now"
+    "orderNow":"Order Now",
+    "home":"Home",
+    "favorite":"Favorite",
+    "cart":"Cart",
+    "allMeals":"All Meals",
+    "mostPopular":"Most Popular",
+    "mostSeller":"Most Seller"
 }

@@ -13,6 +13,8 @@ class CustomCartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.sizeOf(context).height;
+
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -20,7 +22,7 @@ class CustomCartWidget extends StatelessWidget {
           return Column(
             children: [
               SizedBox(
-                height: 690,
+                height: height * 0.8,
                 child: ListView.separated(
                   physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) => buildMealCartItem(
@@ -31,12 +33,16 @@ class CustomCartWidget extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                ),
                 child: CustomButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PaymentInfo()),
+                      MaterialPageRoute(
+                        builder: (context) => PaymentInfo(),
+                      ),
                     );
                   },
                   text: S.of(context).orderNow,
@@ -46,7 +52,9 @@ class CustomCartWidget extends StatelessWidget {
             ],
           );
         } else {
-          return const Center(child: Text('لا توجد وجبات في سلة المشتريات'));
+          return const Center(
+            child: Text('لا توجد وجبات في سلة المشتريات'),
+          );
         }
       },
     );

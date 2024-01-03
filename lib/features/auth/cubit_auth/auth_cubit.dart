@@ -14,11 +14,12 @@ class AuthCubit extends Cubit<AuthState> {
   static const String primaryKey = 'primaryKey';
 
 //! SignUp With Email And Password
-  Future<void> signUpWithEmailAndPassword(
-      {required String email,
-      required String password,
-      required String name,
-      required String phone}) async {
+  Future<void> signUpWithEmailAndPassword({
+    required String email,
+    required String password,
+    required String userName,
+    required String phone,
+  }) async {
     try {
       emit(SignupLoadingState());
       await FirebaseAuth.instance
@@ -28,7 +29,7 @@ class AuthCubit extends Cubit<AuthState> {
       )
           .then((value) async {
         await addUserProfile(
-          name: name,
+          userName: userName,
           email: email,
           phone: phone,
         );
@@ -45,11 +46,11 @@ class AuthCubit extends Cubit<AuthState> {
 //! user Create
   Future<void> addUserProfile({
     required String email,
-    required String name,
+    required String userName,
     required String phone,
   }) async {
     UserModel model = UserModel(
-        name: name,
+        userName: userName,
         email: email,
         phone: phone,
         image:

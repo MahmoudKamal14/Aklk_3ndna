@@ -114,7 +114,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
                                 .signUpWithEmailAndPassword(
                               email: emailController.text,
                               password: passwordController.text,
-                              name: nameController.text,
+                              userName: nameController.text,
                               phone: phoneController.text,
                             );
                           }
