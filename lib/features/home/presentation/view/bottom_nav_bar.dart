@@ -67,7 +67,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   BottomAppBar _bottomNavBar(BuildContext context) {
     return BottomAppBar(
-      color: Colors.white,
+      color: Theme.of(context).cardColor,
       height: MediaQuery.of(context).size.height * 0.083,
       child: Directionality(
         textDirection: TextDirection.ltr,
@@ -141,7 +141,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             color: context.watch<BottomNavBarCubit>().state == page
                 ? Colors.amber
                 : Colors.grey,
-            size: MediaQuery.of(context).size.width * 0.06,
+            size: MediaQuery.of(context).size.width * 0.055,
           ),
           SizedBox(height: 2),
           Text(

@@ -25,7 +25,7 @@ class CustomProfileWidget extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).cardColor,
           body: ListView(
             physics: BouncingScrollPhysics(),
             children: [
@@ -88,8 +88,14 @@ class CustomProfileSampleDataSection extends StatelessWidget {
                     color: Colors.amber,
                   ),
                 ),
-                title: Text(user.userName),
-                subtitle: Text(user.email),
+                title: Text(
+                  user.userName,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                subtitle: Text(
+                  user.email,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
             ],
           );
@@ -109,10 +115,7 @@ class CustomSettingsAppBarSection extends StatelessWidget {
       child: Text(
         S.of(context).Settings,
         textAlign: isArabic() ? TextAlign.right : TextAlign.left,
-        style: TextStyle(
-          fontSize: sizeText ?? 26,
-          color: Colors.black,
-        ),
+        style: Theme.of(context).appBarTheme.titleTextStyle,
       ),
     );
   }
@@ -169,29 +172,32 @@ class CustomDarkModeSection extends StatefulWidget {
 }
 
 class _CustomDarkModeSectionState extends State<CustomDarkModeSection> {
-  bool _lights = false;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 15),
-        CardSettingsSwitch(
-          leading: IconlyLight.notification,
-          trailing: Switch(
-            inactiveThumbColor: Colors.grey,
-            activeColor: Colors.amber,
-            value: _lights,
-            onChanged: (value) {
-              setState(() {
-                _lights = value;
-              });
-            },
+    return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+      //bool _lights = AppCubit.get(context).darkMode;
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 15),
+          CardSettingsSwitch(
+            leading: IconlyLight.notification,
+            trailing: Switch(
+              inactiveThumbColor: Colors.grey,
+              activeColor: Colors.amber,
+              value: AppCubit.get(context).darkMode,
+              onChanged: (value) {
+                AppCubit.get(context).changeColorApp();
+                if (value) {
+                  setState(() {});
+                }
+              },
+            ),
+            text: S.of(context).DarkMode,
           ),
-          text: S.of(context).DarkMode,
-        ),
-      ],
-    );
+        ],
+      );
+    });
   }
 }
 
@@ -241,6 +247,7 @@ class CustomSettingsGeneralSection extends StatelessWidget {
       children: [
         const SizedBox(height: 15),
         Card(
+          color: Theme.of(context).cardColor,
           elevation: 1.0,
           child: ListTile(
             trailing: IconButton(
@@ -262,10 +269,7 @@ class CustomSettingsGeneralSection extends StatelessWidget {
             ),
             title: Text(
               S.of(context).language,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
         ),

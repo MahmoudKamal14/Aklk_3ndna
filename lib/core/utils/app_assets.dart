@@ -58,7 +58,7 @@ class Assets {
   /// Assets for imagesForgotPassword
   /// assets/images/forgot-password.avif
   static const String imagesForgotPassword =
-      "assets/images/forgot-password.avif";
+      "assets/images/forgot-password.png";
 
   /// Assets for imagesGetStartedCircle Background
   /// assets/images/get_started/Circle Background.png

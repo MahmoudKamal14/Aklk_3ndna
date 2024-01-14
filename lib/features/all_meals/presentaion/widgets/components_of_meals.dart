@@ -102,7 +102,7 @@ class imageMeal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image(
       image: NetworkImage(model.photo!),
-      width: 340,
+      width: 300,
     );
   }
 }
@@ -117,48 +117,45 @@ class mealNameRate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        children: [
-          Text(
-            model.name!,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Text(
+          model.name!,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
           ),
-          Spacer(),
-          Container(
-            height: 30,
-            width: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: const Color(0xffD85E2C)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  model.rate!,
-                  style: TextStyle(
-                    color: Color(0xffFFFEEE),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CupertinoIcons.star_fill,
+        ),
+        Container(
+          height: 30,
+          width: 80,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: const Color(0xffD85E2C)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                model.rate!,
+                style: TextStyle(
                   color: Color(0xffFFFEEE),
-                  size: 22,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
-              ],
-            ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(
+                CupertinoIcons.star_fill,
+                color: Color(0xffFFFEEE),
+                size: 22,
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -204,11 +201,7 @@ class mealDescription extends StatelessWidget {
             children: [
               Text(
                 S.of(context).MealDetails,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).appBarTheme.titleTextStyle,
               ),
             ],
           ),
@@ -220,10 +213,7 @@ class mealDescription extends StatelessWidget {
                   model.description!,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 4,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ),
             ],

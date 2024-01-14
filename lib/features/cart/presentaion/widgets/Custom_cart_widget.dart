@@ -2,7 +2,7 @@ import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_states.dart';
 import 'package:aklk_3ndna/core/widgets/custom_button.dart';
 import 'package:aklk_3ndna/features/cart/presentaion/widgets/build_meal_cart_item.dart';
-import 'package:aklk_3ndna/features/payment/presentation/payment_info.dart';
+import 'package:aklk_3ndna/features/payment/presentation/view/payment_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,11 +37,12 @@ class CustomCartWidget extends StatelessWidget {
                   horizontal: 10,
                 ),
                 child: CustomButton(
+                  color: Color(0xffD85E2C),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PaymentInfo(),
+                        builder: (context) => PaymentDetailsView(),
                       ),
                     );
                   },

@@ -7,14 +7,12 @@ Widget textFieldProfile({
   String? label,
   String? hintText,
   IconData? prefix,
+  required BuildContext context,
 }) =>
     TextFormField(
       controller: controller,
       keyboardType: type,
-      style: const TextStyle(
-        color: Colors.grey,
-        fontSize: 22,
-      ),
+      style: Theme.of(context).appBarTheme.titleTextStyle,
       cursorColor: Colors.grey,
       decoration: InputDecoration(
         border: _getBorderStyle(),

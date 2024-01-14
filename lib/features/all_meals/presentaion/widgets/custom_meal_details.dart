@@ -17,7 +17,7 @@ class CustomMealDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Color(0xffD85E2C),
+      backgroundColor: Theme.of(context).canvasColor,
       body: Padding(
         padding: const EdgeInsets.only(top: 10),
         child: Stack(
@@ -36,15 +36,14 @@ class CustomMealDetails extends StatelessWidget {
               bottom: 0,
               height: 550,
               child: Container(
-                width: 416,
+                width: 395,
                 decoration: BoxDecoration(
-                    color: Color(0xffFFFEEE),
+                    color: Theme.of(context).secondaryHeaderColor,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40))),
                 child: Column(
                   children: [
-                    //
                     SizedBox(
                       height: 130,
                     ),
@@ -78,7 +77,11 @@ class CustomMealDetails extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(bottom: 440, right: 15, child: imageMeal(model: model)),
+            Positioned(
+              bottom: 440,
+              right: 40,
+              child: imageMeal(model: model),
+            ),
           ],
         ),
       ),

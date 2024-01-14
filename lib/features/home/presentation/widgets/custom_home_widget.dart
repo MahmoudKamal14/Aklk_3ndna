@@ -24,14 +24,10 @@ class CustomHomeWidget extends StatelessWidget {
           width: double.infinity,
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Text(
             '${S.of(context).mostPopular}',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Container(
@@ -51,11 +47,7 @@ class CustomHomeWidget extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
           child: Text(
             '${S.of(context).mostSeller}',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         Container(

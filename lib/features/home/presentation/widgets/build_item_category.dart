@@ -17,7 +17,7 @@ Widget BuildItemMealCategory(MealModel model, context) => InkWell(
         );
       },
       child: Card(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),

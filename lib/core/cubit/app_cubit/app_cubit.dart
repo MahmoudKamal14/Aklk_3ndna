@@ -350,4 +350,14 @@ class AppCubit extends Cubit<AppStates> {
       print(error);
     });
   }
+
+  bool darkMode = false;
+
+  void changeColorApp() {
+    darkMode = !darkMode;
+    if (darkMode == true)
+      emit(ChangeColorAppSuccessState());
+    else
+      emit(ChangeColorAppErrorState());
+  }
 }

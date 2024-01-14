@@ -11,7 +11,7 @@ class SearchBoxWidget extends StatelessWidget {
       width: double.infinity,
       height: 60,
       child: Card(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         elevation: 3,
         child: InkWell(
           onTap: () {
@@ -24,14 +24,18 @@ class SearchBoxWidget extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.search_rounded,
                   size: 30,
+                  color: Theme.of(context).appBarTheme.iconTheme!.color,
                 ),
                 const SizedBox(width: 5),
                 Text(S.of(context).Findyourfavoritemeals),
                 const Spacer(),
-                const Icon(Icons.filter_list_sharp),
+                Icon(
+                  Icons.filter_list_sharp,
+                  color: Theme.of(context).appBarTheme.iconTheme!.color,
+                ),
               ],
             ),
           ),

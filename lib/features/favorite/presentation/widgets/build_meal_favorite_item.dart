@@ -36,6 +36,7 @@ class Favorite extends StatelessWidget {
           },
           child: Card(
             elevation: 2,
+            color: Theme.of(context).cardColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
@@ -45,11 +46,17 @@ class Favorite extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 backgroundImage: NetworkImage(model.photo!),
               ),
-              title: Text(model.name!),
+              title: Text(
+                model.name!,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
               subtitle: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${model.price!}'),
+                  Text(
+                    '${model.price!}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                 ],
               ),
               trailing: const Icon(

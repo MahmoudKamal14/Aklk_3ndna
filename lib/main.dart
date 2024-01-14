@@ -4,6 +4,8 @@ import 'package:aklk_3ndna/core/cubit/internet_connection/internet_connection_cu
 import 'package:aklk_3ndna/core/database/cache/cache_helper.dart';
 import 'package:aklk_3ndna/core/functions/check_state_chenges.dart';
 import 'package:aklk_3ndna/core/services/service_locator.dart';
+import 'package:aklk_3ndna/core/theme/dark_mode.dart';
+import 'package:aklk_3ndna/core/theme/light_mode.dart';
 import 'package:aklk_3ndna/features/home/presentation/logic/bottom_nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,9 +51,11 @@ class CustomMultiBlocProvider extends StatelessWidget {
             ..allMeals
             ..allMealsFavorite
             ..allMealsCart
+            ..darkMode
             ..getAllMeals()
             ..getAllMealsFavorite()
-            ..getUserData(),
+            ..getUserData()
+            ..changeColorApp(),
         ),
       ],
       child: const Aklk3ndna(),
@@ -81,6 +85,11 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
       builder: (context, state) {
         var materialApp = MaterialApp(
           debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: AppCubit.get(context).darkMode == true
+              ? ThemeMode.dark
+              : ThemeMode.light,
           locale: Locale(
             (state is ArabicState) ? 'ar' : 'en',
           ),

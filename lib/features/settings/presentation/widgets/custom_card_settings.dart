@@ -15,6 +15,7 @@ class CardSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).cardColor,
       elevation: 1.0,
       child: ListTile(
         trailing: IconButton(
@@ -29,10 +30,7 @@ class CardSettings extends StatelessWidget {
         ),
         title: Text(
           text,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.grey,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
     );

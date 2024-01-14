@@ -19,6 +19,7 @@ Widget buildMealItem(MealModel model, context) => InkWell(
         ),
         child: Card(
           elevation: 5,
+          color: Theme.of(context).cardColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -36,13 +37,14 @@ Widget buildMealItem(MealModel model, context) => InkWell(
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  textFirebase(model, text: '${model.name}'),
+                  textFirebase(model, text: '${model.name}', context: context),
                   SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
-                      textFirebase(model, text: '${model.price}'),
+                      textFirebase(model,
+                          text: '${model.price}', context: context),
                       SizedBox(
                         width: 60,
                       ),
@@ -50,7 +52,8 @@ Widget buildMealItem(MealModel model, context) => InkWell(
                       SizedBox(
                         width: 5,
                       ),
-                      textFirebase(model, text: '${model.rate}'),
+                      textFirebase(model,
+                          text: '${model.rate}', context: context),
                     ],
                   ),
                 ],
@@ -61,13 +64,11 @@ Widget buildMealItem(MealModel model, context) => InkWell(
       ),
     );
 
-Widget textFirebase(MealModel model, {required String text}) => Text(
+Widget textFirebase(MealModel model,
+        {required String text, required BuildContext context}) =>
+    Text(
       text,
-      style: const TextStyle(
-        height: 1.4,
-        fontSize: 20,
-        color: Colors.black,
-      ),
+      style: Theme.of(context).textTheme.bodyLarge,
       maxLines: 2,
       overflow: TextOverflow.clip,
     );

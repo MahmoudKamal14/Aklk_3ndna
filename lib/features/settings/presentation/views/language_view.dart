@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:aklk_3ndna/core/cubit/current_locale/current_locale_cubit.dart';
 import 'package:aklk_3ndna/core/database/cache/cache_helper.dart';
 import 'package:aklk_3ndna/core/services/service_locator.dart';
-import 'package:aklk_3ndna/core/utils/app_colors.dart';
 import 'package:aklk_3ndna/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -31,13 +30,10 @@ class _languageViewState extends State<languageView> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: kPrimaryColor,
+            backgroundColor: Theme.of(context).cardColor,
             title: Text(
               S.of(context).language,
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).appBarTheme.titleTextStyle,
             ),
             leading: IconButton(
               onPressed: () {
@@ -46,14 +42,17 @@ class _languageViewState extends State<languageView> {
               icon: Icon(Icons.arrow_back_ios_new),
             ),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).cardColor,
           body: ListView(
             physics: BouncingScrollPhysics(),
             children: [
               RadioListTile(
                   activeColor: Colors.amber,
                   selected: _value == true ? true : false,
-                  title: Text(S.of(context).Arabic),
+                  title: Text(
+                    S.of(context).Arabic,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   value: true,
                   groupValue: _value,
                   onChanged: (value) async {
@@ -67,7 +66,10 @@ class _languageViewState extends State<languageView> {
               RadioListTile(
                   activeColor: Colors.amber,
                   selected: _value == false ? true : false,
-                  title: Text(S.of(context).English),
+                  title: Text(
+                    S.of(context).English,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   value: false,
                   groupValue: _value,
                   onChanged: (value) async {

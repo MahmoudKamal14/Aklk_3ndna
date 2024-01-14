@@ -26,17 +26,14 @@ class EditProfileView extends StatelessWidget {
         return Directionality(
           textDirection: TextDirection.ltr,
           child: Scaffold(
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             appBar: AppBar(
               elevation: 0.0,
               centerTitle: true,
               backgroundColor: Colors.transparent,
               title: Text(
                 S.of(context).EditProfile,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                ),
+                style: Theme.of(context).appBarTheme.titleTextStyle,
               ),
             ),
             body: SingleChildScrollView(
@@ -63,6 +60,7 @@ class EditProfileView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: textFieldProfile(
+                      context: context,
                       controller: nameController,
                       type: TextInputType.name,
                       prefix: Icons.person_2,
@@ -73,6 +71,7 @@ class EditProfileView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: textFieldProfile(
+                      context: context,
                       controller: phoneController,
                       type: TextInputType.phone,
                       prefix: Icons.phone,
@@ -80,18 +79,20 @@ class EditProfileView extends StatelessWidget {
                       hintText: '${user.phone}',
                     ),
                   ),
-                  SizedBox(height: 250),
+                  SizedBox(height: 200),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: CustomButton(
-                        onPressed: () {
-                          AppCubit.get(context).updateUser(
-                            userName: nameController.text,
-                            phone: phoneController.text,
-                            email: emailController.text,
-                          );
-                        },
-                        text: S.of(context).Update),
+                      color: Theme.of(context).cardColor,
+                      onPressed: () {
+                        AppCubit.get(context).updateUser(
+                          userName: nameController.text,
+                          phone: phoneController.text,
+                          email: emailController.text,
+                        );
+                      },
+                      text: S.of(context).Update,
+                    ),
                   ),
                 ],
               ),
