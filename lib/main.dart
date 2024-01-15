@@ -46,15 +46,14 @@ class CustomMultiBlocProvider extends StatelessWidget {
           create: (context) => BottomNavBarCubit(),
         ),
         BlocProvider(
-          create: (context) => AppCubit()
-            ..mealModel
-            ..allMeals
-            ..allMealsFavorite
-            ..allMealsCart
-            ..getAllMeals()
-            ..getAllMealsFavorite()
-            ..getUserData(),
-        ),
+            create: (context) => AppCubit()
+              ..mealModel
+              ..allMeals
+              ..allMealsFavorite
+              ..allMealsCart
+              ..getAllMeals()
+              ..getAllMealsFavorite()
+              ..getUserData()),
       ],
       child: const Aklk3ndna(),
     );
@@ -78,7 +77,7 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
     super.initState();
   }
 
-//! Mahmoud Kamal
+//! Mahmoud
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CurrentLocaleCubit, CurrentLocaleState>(
