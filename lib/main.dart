@@ -40,7 +40,7 @@ class CustomMultiBlocProvider extends StatelessWidget {
           create: (context) => InternetConnectionCubit()..checkConnectivity(),
         ),
         BlocProvider(
-          create: (context) => CurrentLocaleCubit(),
+          create: (context) => CurrentLocaleCubit()..darkMode,
         ),
         BlocProvider(
           create: (context) => BottomNavBarCubit(),
@@ -73,7 +73,7 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
     CurrentLocaleCubit.get(context).updateLanguage(
       value: getIt<CacheHelper>().getData(key: "value") ?? true,
     );
-    CurrentLocaleCubit.get(context).changeColorApp();
+    CurrentLocaleCubit.get(context).changeColorApp(value: true);
     super.initState();
   }
 
@@ -90,7 +90,7 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
               ? ThemeMode.dark
               : ThemeMode.light,
           locale: Locale(
-            (state is ArabicState) ? 'ar' : 'en',
+            (CurrentLocaleCubit.get(context).isEnglish == false) ? 'ar' : 'en',
           ),
           localizationsDelegates: const [
             S.delegate,

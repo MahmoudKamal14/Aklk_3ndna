@@ -190,7 +190,7 @@ class _CustomDarkModeSectionState extends State<CustomDarkModeSection> {
               activeColor: Colors.amber,
               value: CurrentLocaleCubit.get(context).darkMode,
               onChanged: (value) {
-                CurrentLocaleCubit.get(context).changeColorApp();
+                CurrentLocaleCubit.get(context).changeColorApp(value: value);
                 if (value) {
                   setState(() {});
                 }
