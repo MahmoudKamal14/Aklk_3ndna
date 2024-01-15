@@ -77,7 +77,7 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
     CurrentLocaleCubit.get(context).changeColorApp();
     super.initState();
   }
-
+///
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CurrentLocaleCubit, CurrentLocaleState>(
