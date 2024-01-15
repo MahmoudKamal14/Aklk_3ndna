@@ -18,7 +18,7 @@ class ForgotPasswordView extends StatelessWidget {
       create: (context) => AuthCubit(),
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).cardColor,
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ListView(

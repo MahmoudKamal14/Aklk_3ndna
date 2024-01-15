@@ -8,11 +8,7 @@ class WelcomeTextWidget extends StatelessWidget {
     return Align(
       child: Text(
         text,
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.w600,
-          color: Colors.grey[600],
-        ),
+        style: Theme.of(context).appBarTheme.titleTextStyle,
       ),
     );
   }

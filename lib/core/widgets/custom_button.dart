@@ -8,9 +8,11 @@ class CustomButton extends StatelessWidget {
       required this.onPressed,
       this.color,
       this.width,
-      this.textColor});
+      this.textColor,
+      this.textStyle});
   final String text;
   final Color? textColor;
+  final TextStyle? textStyle;
   final VoidCallback? onPressed;
   final Color? color;
   final double? width;
@@ -29,11 +31,7 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
     );

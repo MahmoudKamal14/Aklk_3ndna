@@ -57,6 +57,7 @@ class CustomMealDetails extends StatelessWidget {
                         color: Color(0xffD85E2C),
                         text: S.of(context).orderNow,
                         textColor: Colors.white,
+                        //textStyle: Theme.of(context).textTheme.bodyLarge,
                         onPressed: () {
                           AppCubit.get(context).addMealsToTheCart(
                             name: model.name!,
@@ -69,6 +70,7 @@ class CustomMealDetails extends StatelessWidget {
                           showToast(
                               msg: 'تم إضافة ${model.name!} إلي سلة المشتريات',
                               color: Colors.green);
+                          Navigator.pop(context);
                         },
                         width: 250,
                       ),

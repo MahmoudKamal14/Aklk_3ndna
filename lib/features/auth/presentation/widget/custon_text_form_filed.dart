@@ -13,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.obscureText,
+    this.hintTextStyle,
   });
   final TextEditingController controller;
   final String hintText;
@@ -21,6 +22,7 @@ class CustomTextFormField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final bool? obscureText;
+  final TextStyle? hintTextStyle;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,6 +44,7 @@ class CustomTextFormField extends StatelessWidget {
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
           hintText: hintText,
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
           labelStyle: TextStyle(
             fontSize: 18,
             color: Colors.grey,

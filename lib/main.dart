@@ -51,11 +51,9 @@ class CustomMultiBlocProvider extends StatelessWidget {
             ..allMeals
             ..allMealsFavorite
             ..allMealsCart
-            ..darkMode
             ..getAllMeals()
             ..getAllMealsFavorite()
-            ..getUserData()
-            ..changeColorApp(),
+            ..getUserData(),
         ),
       ],
       child: const Aklk3ndna(),
@@ -76,6 +74,7 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
     CurrentLocaleCubit.get(context).updateLanguage(
       value: getIt<CacheHelper>().getData(key: "value") ?? true,
     );
+    CurrentLocaleCubit.get(context).changeColorApp();
     super.initState();
   }
 
@@ -87,7 +86,7 @@ class _Aklk3ndnaState extends State<Aklk3ndna> {
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
           darkTheme: darkTheme,
-          themeMode: AppCubit.get(context).darkMode == true
+          themeMode: (CurrentLocaleCubit.get(context).darkMode == true)
               ? ThemeMode.dark
               : ThemeMode.light,
           locale: Locale(

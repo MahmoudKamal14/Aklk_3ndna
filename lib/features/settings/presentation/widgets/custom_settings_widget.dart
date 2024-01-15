@@ -1,5 +1,7 @@
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_states.dart';
+import 'package:aklk_3ndna/core/cubit/current_locale/current_locale_cubit.dart';
+import 'package:aklk_3ndna/core/cubit/current_locale/current_locale_state.dart';
 import 'package:aklk_3ndna/core/functions/is_arabic.dart';
 import 'package:aklk_3ndna/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:aklk_3ndna/features/auth/presentation/views/sign_in_view.dart';
@@ -174,7 +176,8 @@ class CustomDarkModeSection extends StatefulWidget {
 class _CustomDarkModeSectionState extends State<CustomDarkModeSection> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
+    return BlocBuilder<CurrentLocaleCubit, CurrentLocaleState>(
+        builder: (context, state) {
       //bool _lights = AppCubit.get(context).darkMode;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,9 +188,9 @@ class _CustomDarkModeSectionState extends State<CustomDarkModeSection> {
             trailing: Switch(
               inactiveThumbColor: Colors.grey,
               activeColor: Colors.amber,
-              value: AppCubit.get(context).darkMode,
+              value: CurrentLocaleCubit.get(context).darkMode,
               onChanged: (value) {
-                AppCubit.get(context).changeColorApp();
+                CurrentLocaleCubit.get(context).changeColorApp();
                 if (value) {
                   setState(() {});
                 }

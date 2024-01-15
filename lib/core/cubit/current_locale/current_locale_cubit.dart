@@ -12,4 +12,14 @@ class CurrentLocaleCubit extends Cubit<CurrentLocaleState> {
       emit(EnglishState());
     }
   }
+
+  bool darkMode = false;
+
+  void changeColorApp() {
+    darkMode = !darkMode;
+    if (darkMode == true)
+      emit(ChangeColorAppSuccessState());
+    else
+      emit(ChangeColorAppErrorState());
+  }
 }

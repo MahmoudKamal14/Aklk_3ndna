@@ -12,7 +12,7 @@ ThemeData lightTheme = ThemeData(
     elevation: 0,
     titleTextStyle: TextStyle(
       color: Colors.black,
-      fontSize: 20,
+      fontSize: 26,
       fontWeight: FontWeight.bold,
     ),
     iconTheme: IconThemeData(color: Colors.black),
@@ -28,10 +28,15 @@ ThemeData lightTheme = ThemeData(
       fontWeight: FontWeight.w600,
       color: Colors.black,
     ),
+    bodySmall: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w600,
+      color: Colors.grey,
+    ),
     titleMedium: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w600,
-      color: Colors.black,
+      color: Colors.grey,
       height: 1.3,
     ),
   ),

@@ -270,7 +270,7 @@ class AppCubit extends Cubit<AppStates> {
     });
   }
 
-  // Get All Meals Favorite
+  // Get All Meals Cart
 
   void addMealsToTheCart({
     required String name,
@@ -349,15 +349,5 @@ class AppCubit extends Cubit<AppStates> {
       emit(GetAllMealsCartErrorState(error.toString()));
       print(error);
     });
-  }
-
-  bool darkMode = false;
-
-  void changeColorApp() {
-    darkMode = !darkMode;
-    if (darkMode == true)
-      emit(ChangeColorAppSuccessState());
-    else
-      emit(ChangeColorAppErrorState());
   }
 }

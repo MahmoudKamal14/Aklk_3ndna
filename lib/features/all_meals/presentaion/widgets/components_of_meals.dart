@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, unused_field
 
 import 'package:aklk_3ndna/core/cubit/app_cubit/app_cubit.dart';
 import 'package:aklk_3ndna/core/functions/show_toast.dart';
@@ -20,7 +20,7 @@ class priceMeal extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Text(
-        model.price!,
+        '${model.price!}',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 30,
@@ -43,8 +43,8 @@ class nomOfMeals extends StatefulWidget {
 }
 
 class _nomOfMealsState extends State<nomOfMeals> {
-  late int n = 1;
-
+  int n = 1;
+  static late int p;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -56,6 +56,7 @@ class _nomOfMealsState extends State<nomOfMeals> {
               setState(() {
                 if (n > 1) {
                   n--;
+                  p = n;
                 }
               });
             },
@@ -76,6 +77,7 @@ class _nomOfMealsState extends State<nomOfMeals> {
             onPressed: () {
               setState(() {
                 n++;
+                p = n;
               });
             },
             icon: const Icon(
@@ -167,15 +169,18 @@ class arrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: Icon(
-          Icons.arrow_forward_ios,
-          color: Color(0xffFFFEEE),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Color(0xffFFFEEE),
+          ),
         ),
       ),
     );

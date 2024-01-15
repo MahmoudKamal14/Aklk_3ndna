@@ -105,9 +105,3 @@ class AddMealsFavoriteSuccessState extends AppStates {}
 //Delete Meal from  Favorite
 
 class DeleteMealsFavoriteSuccessState extends AppStates {}
-
-//Change Color App
-
-class ChangeColorAppSuccessState extends AppStates {}
-
-class ChangeColorAppErrorState extends AppStates {}
